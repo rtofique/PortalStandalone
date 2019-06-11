@@ -36,8 +36,6 @@ public class QueryProcessor {
   @Autowired
   IgniteClient igniteClient;
 
-  @Autowired
-  QueryOutputFormatter outputFormatter;
 
 
   private final String CACHE_NAME = "correlator_rateCenters";
@@ -67,6 +65,7 @@ public class QueryProcessor {
   /**
    * Queries the ignite database for the NPANXX number entered by the user. This method is the only one that the REST Controller needs to call.
    * It will validate and format the data and return the result back;
+   * It performs two checks if a non-Block number was given by converting it into a block number to match the longest prefix
    *
    * @param query Raw NPANXX entered by the user
    * @return String output of all the rate center fields concatenated
@@ -74,10 +73,28 @@ public class QueryProcessor {
    */
   public String queryNumber(String query) throws InvalidInputException
   {
-    if(!isValidQuery(query)) throw new InvalidInputException(query);
+    QueryInputFormatter queryInputFormatter = new QueryInputFormatter();
+    if(!queryInputFormatter.isValidQuery(query)) throw new InvalidInputException(query);
+    String formattedQuery = queryInputFormatter.formatQuery(query);
 
-    String formattedQuery = formatQuery(query);
+    TreeSet<RateCenter> result = findIgniteRecord((formattedQuery));
+
+    if(result == null && !queryInputFormatter.isBlockQuery(formattedQuery))
+    {
+      formattedQuery = queryInputFormatter.formatQuery(formattedQuery.substring(0, 6));
+      result = findIgniteRecord((formattedQuery));
+    }
+
+    if(result == null) return "No value found in database for the key: " + formattedQuery;
+
+    return new QueryOutputFormatter().formatRateCenterOutput(formattedQuery, result);
+  }
+
+  private TreeSet<RateCenter> findIgniteRecord(String formattedQuery)
+  {
+
     TreeSet<RateCenter> result;
+
     try
     {
       result = (TreeSet<RateCenter>)igniteClient.cache(CACHE_NAME).get(formattedQuery);
@@ -87,34 +104,9 @@ public class QueryProcessor {
       result = null;
     }
 
-    if(result == null) return "No value found in database for the key: " + formattedQuery;
-
-    return outputFormatter.formatRateCenterOutput(formattedQuery, result);
+    return result;
   }
 
-
-  /**
-   *
-   * @param query
-   * @return checks if the proper NPA-NXX format is used
-   *
-   */
-  private boolean isValidQuery(String query)
-  {
-    return query.matches("\\d{7}") || query.matches("\\d{6}A?");
-  }
-
-
-  /**
-   *
-   * @param query Raw query entered by the user and forwarded to the QueryProcessor
-   * @return Query that is in accordance with the key format in the database: 7 Digits or 6 Digits + A
-   *
-   */
-  private String formatQuery(String query)
-  {
-    return (query.length() == 6) ? query + "A" : query;
-  }
 
   /**
    * QueryProcesser to be used as a Singleton

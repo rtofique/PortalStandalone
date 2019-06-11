@@ -23,7 +23,8 @@ import org.springframework.context.annotation.Configuration;
 public class IgniteClientManager
 {
 
-  //currently a place holder value that will be configured to actually read from a file
+  //currently a place holder value that will be configured to actually read from an application file
+  //query each address until you pass
   private final String address = "192.168.111.67:10800";
 
 

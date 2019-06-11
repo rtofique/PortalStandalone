@@ -23,6 +23,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.apache.ignite.cache.query.ScanQuery;
 import java.util.Iterator;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 /**
  * REST API class which configures routing paths and makes external calls to handle the queries
@@ -44,24 +49,18 @@ public class QueryController {
 
     private final String INVALID_INPUT_ERROR = "The given input is invalid. It needs to be in the format (XXXXXXX) or (XXXXXXA), where X = a number from 1-9";
 
-
+    @ApiOperation(value = "Get all the data stored in Bandwidth's database for this number")
     @GetMapping(path="/number")
-    public String getQuery(@RequestParam(value="npa") String npa, @RequestParam(value="nxx") String nxx)
+    public String getQuery(@RequestParam(value="Phone Number") String number)
     {
         try
         {
-            return queryProcessor.queryNumber(npa + nxx);
+            return queryProcessor.queryNumber(number);
         }
         catch(InvalidInputException e)
         {
             return INVALID_INPUT_ERROR;
         }
-    }
-
-    @GetMapping(path="/numberpost")
-    public String setQuery(@RequestParam(value="npa") String npa, @RequestParam(value="nxx") String nxx)
-    {
-      return "Does Not Support POST queries";
     }
 
 }
