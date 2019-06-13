@@ -20,4 +20,12 @@ public class QueryResultWrapper {
     this.jsonResult = jsonResult;
     this.httpResponse = httpResponse;
   }
+
+  public String getJsonResult() {
+    return jsonResult;
+  }
+
+  public HttpStatus getHttpResponse() {
+    return httpResponse;
+  }
 }

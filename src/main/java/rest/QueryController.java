@@ -6,6 +6,7 @@ package rest;
 
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,11 +44,10 @@ public class QueryController {
 
     @ApiOperation(value = "Get all the data stored in Bandwidth's database for this number")
     @GetMapping(path="/number")
-    public String getQuery(@RequestParam(value="Phone Number") String userNumberQuery)
+    public ResponseEntity<String> getQuery(@RequestParam(value="Phone Number") String userNumberQuery)
     {
-
         QueryResultWrapper wrapper = queryProcessor.queryInput(userNumberQuery);
-
+        return new ResponseEntity<>(wrapper.getJsonResult(), wrapper.getHttpResponse());
     }
 
 }
