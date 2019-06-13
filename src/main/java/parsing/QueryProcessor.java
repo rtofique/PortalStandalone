@@ -63,18 +63,13 @@ public class QueryProcessor {
    * It performs two checks if a non-Block number was given by converting it into a block number to match the longest prefix
    *
    * @param query Raw number entered by the user
-   * @return This returns a ValidNumberRecord which has all the data or
+   * @return This returns a ValidNumberRecord which has all the data about the rate centers or null data for unresolved queries
    * @throws InvalidInputException
    */
   private ValidNumberRecord queryNumber(String query)
   {
 
-    //think about an error list-> log the errors-> return them with the payload
-    //this should return a NumberQuery Object
-
-
     String formattedQuery = queryInputFormatter.formatQuery(query);
-
     TreeSet<RateCenter> result = findIgniteRecord((formattedQuery));
 
     if(result == null && !queryInputFormatter.isBlockQuery(formattedQuery))
@@ -97,7 +92,7 @@ public class QueryProcessor {
    * @param userQuery The complete raw query entered by the user
    * @return a list of either InvalidNumberRecords or ValidNumberRecords
    */
-  public List<? extends NumberRecord> queryInput(String userQuery)
+  public QueryResultWrapper queryInput(String userQuery)
   {
 
     List<String> queries = queryInputFormatter.prepareQueries(userQuery);
@@ -105,14 +100,14 @@ public class QueryProcessor {
     //run a check on the validity of the data first and return all the invalid numbers in the list
     List<InvalidNumberRecord> invalidNumbers =  queryInputFormatter.findInvalidNumbers(queries);
 
-    if(!invalidNumbers.isEmpty()) return invalidNumbers;
+    if(!invalidNumbers.isEmpty()) return queryOutputFormatter.generateResultResponse(invalidNumbers);
 
     List<ValidNumberRecord> outputRecords =  queries
         .stream()
         .map(this::queryNumber)
         .collect(Collectors.toList());
 
-    return outputRecords;
+    return queryOutputFormatter.generateResultResponse(outputRecords);
 
   }
 
@@ -138,6 +133,7 @@ public class QueryProcessor {
 
     return result;
   }
+
 
 
   /**

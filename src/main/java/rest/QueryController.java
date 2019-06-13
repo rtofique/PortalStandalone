@@ -5,12 +5,15 @@ package rest;
  */
 
 import java.util.List;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import io.swagger.annotations.ApiOperation;
+import parsing.NumberRecord;
+import parsing.QueryResultWrapper;
 import parsing.ValidNumberRecord;
 import parsing.QueryProcessor;
 
@@ -35,14 +38,15 @@ public class QueryController {
     QueryProcessor queryProcessor;
 
 
+
     private final String INVALID_INPUT_ERROR = "The given input is invalid. It needs to be in the format (XXXXXXX) or (XXXXXXA), where X = a number from 1-9";
 
     @ApiOperation(value = "Get all the data stored in Bandwidth's database for this number")
     @GetMapping(path="/number")
-    public String getQuery(@RequestParam(value="Phone Number") String numbers)
+    public String getQuery(@RequestParam(value="Phone Number") String userNumberQuery)
     {
 
-        List<ValidNumberRecord> records = queryProcessor.queryInput(numbers);
+        QueryResultWrapper wrapper = queryProcessor.queryInput(userNumberQuery);
 
     }
 

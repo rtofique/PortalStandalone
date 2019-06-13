@@ -4,8 +4,10 @@ import com.bandwidth.engineering.correlator.dto.cache.RateCenter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 
 //use final objects as much as possible
 //object creation is expensive
@@ -38,33 +40,6 @@ public class QueryOutputFormatter {
 
   }
 
-  /**
-   *
-   * @param query original formatted query string
-   * @param rateCenters all the rate centers returned
-   * @return should ideally return a json output of all the results but this will do for now
-   */
-  public String formatRateCenterOutput(String query, Iterable<RateCenter> rateCenters)
-  {
-    //return getJsonOutput(query, rateCenters);
-  }
-
-  /**
-   *
-   * Give back a complete JSON output of all the numbers queried
-   *
-   * @param query
-   * @param rateCenters
-   * @return
-   */
-  private String getJsonOutput(ValidNumberRecord validNumberRecord)
-  {
-    //mapper should be created only once
-    //final String json = mapper.writeValueAsString(rateCenters);
-    //use logger instead of systemout
-    //System.out.println(json);
-    //return json;
-  }
 
   /**
    *
@@ -107,8 +82,28 @@ public class QueryOutputFormatter {
     return label + ": " + value + ", \r\n";
   }
 
+  /**
+   * Consolidates all the results into a QueryResultWrapper by generating the JSON response and figuring out the appropriate HTTP response code
+   * @param records
+   * @return
+   */
+  public QueryResultWrapper generateResultResponse(List<? extends NumberRecord> records)
+  {
+    //calculate json response here
+    String jsonRepresentation = "";
 
-  //needs to make a JSON string out of all the number records, incomplete queries, and invalid queries it gets
+    //if(records.isEmpty()) return new QueryResultWrapper(jsonRepresentation, HttpStatus.NO_CONTENT);
+    //ask if this works
+    if(!records.isEmpty() && records.get(0) instanceof InvalidNumberRecord) return new QueryResultWrapper(jsonRepresentation, HttpStatus.BAD_REQUEST);
+    /*for(NumberRecord record : records)
+    {
+        ValidNumberRecord validRecord = (ValidNumberRecord) record;
+        if(!validRecord.isRecordValid()) return new QueryResultWrapper(jsonRepresentation, Httpsta);
+    }*/
+
+    return new QueryResultWrapper(jsonRepresentation, HttpStatus.OK);
+
+  }
 
   @Bean
   public QueryOutputFormatter getOutputFormatter()
