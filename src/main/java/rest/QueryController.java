@@ -4,35 +4,23 @@ package rest;
  * Main entry point for queries made to system
  */
 
-import com.bandwidth.engineering.correlator.dto.cache.RateCenter;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.apache.ignite.Ignition;
-import org.apache.ignite.client.IgniteClient;
-import org.apache.ignite.configuration.ClientConfiguration;
-import org.apache.ignite.client.ClientCache;
-import org.apache.ignite.cache.CacheMode;
-import org.apache.ignite.IgniteCache;
-import org.apache.ignite.cache.CachePeekMode;
-import org.apache.ignite.configuration.CacheConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.apache.ignite.cache.query.ScanQuery;
-import java.util.Iterator;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import parsing.ValidNumberRecord;
+import parsing.QueryProcessor;
 
 /**
  * REST API class which configures routing paths and makes external calls to handle the queries
  */
 
+//return the right error codes
+    //look for 200 error code that classifies for partial request success
+    //if cant find any one- then complete failure
 
 @RestController
 @Component
@@ -51,16 +39,11 @@ public class QueryController {
 
     @ApiOperation(value = "Get all the data stored in Bandwidth's database for this number")
     @GetMapping(path="/number")
-    public String getQuery(@RequestParam(value="Phone Number") String number)
+    public String getQuery(@RequestParam(value="Phone Number") String numbers)
     {
-        try
-        {
-            return queryProcessor.queryNumber(number);
-        }
-        catch(InvalidInputException e)
-        {
-            return INVALID_INPUT_ERROR;
-        }
+
+        List<ValidNumberRecord> records = queryProcessor.queryInput(numbers);
+
     }
 
 }

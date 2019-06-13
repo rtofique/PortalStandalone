@@ -14,6 +14,7 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 
+//could be in different config class ( just the swagger)
 
 @EnableSwagger2
 @SpringBootApplication

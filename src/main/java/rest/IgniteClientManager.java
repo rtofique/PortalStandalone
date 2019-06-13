@@ -37,7 +37,7 @@ public class IgniteClientManager
   @Bean
   public IgniteClient getIgniteInstance()
   {
-    ClientConfiguration clientCfg = new ClientConfiguration().setAddresses(address);
+    final ClientConfiguration clientCfg = new ClientConfiguration().setAddresses(address);
     return Ignition.startClient(clientCfg);
   }
 

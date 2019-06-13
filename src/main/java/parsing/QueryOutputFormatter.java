@@ -1,15 +1,22 @@
-package rest;
+package parsing;
 
 import com.bandwidth.engineering.correlator.dto.cache.RateCenter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+//use final objects as much as possible
+//object creation is expensive
+//
 
 /**
  * This is a utility class that formats the outputs returned by the ignite database
  *
  */
 
+@Configuration
 public class QueryOutputFormatter {
 
   private final String NUMBER_LABEL = "NUMBER";
@@ -21,6 +28,16 @@ public class QueryOutputFormatter {
   private final String OCN_OVERALL_LABEL = "OCN Overall";
   private final String EFFECTIVE_DATE_LABEL = "Effective Date";
 
+
+  final private ObjectMapper mapper;
+
+  public QueryOutputFormatter()
+  {
+
+    this.mapper = new ObjectMapper();
+
+  }
+
   /**
    *
    * @param query original formatted query string
@@ -29,9 +46,33 @@ public class QueryOutputFormatter {
    */
   public String formatRateCenterOutput(String query, Iterable<RateCenter> rateCenters)
   {
-    return getPlainStringOutput(query, rateCenters);
+    //return getJsonOutput(query, rateCenters);
   }
 
+  /**
+   *
+   * Give back a complete JSON output of all the numbers queried
+   *
+   * @param query
+   * @param rateCenters
+   * @return
+   */
+  private String getJsonOutput(ValidNumberRecord validNumberRecord)
+  {
+    //mapper should be created only once
+    //final String json = mapper.writeValueAsString(rateCenters);
+    //use logger instead of systemout
+    //System.out.println(json);
+    //return json;
+  }
+
+  /**
+   *
+   *
+   * @param query User query
+   * @param rateCenters Results from ignite database
+   * @return  Returns the results as a single plain string for output
+   */
   private String getPlainStringOutput(String query, Iterable<RateCenter> rateCenters)
   {
     StringBuilder builder = new StringBuilder();
@@ -64,6 +105,15 @@ public class QueryOutputFormatter {
   {
     if(value == null) value = "N/A";
     return label + ": " + value + ", \r\n";
+  }
+
+
+  //needs to make a JSON string out of all the number records, incomplete queries, and invalid queries it gets
+
+  @Bean
+  public QueryOutputFormatter getOutputFormatter()
+  {
+    return this;
   }
 
 
