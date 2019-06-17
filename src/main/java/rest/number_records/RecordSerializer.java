@@ -11,14 +11,15 @@ import java.time.format.DateTimeFormatter;
 public class RecordSerializer<T> extends StdSerializer<T> {
 
 
-  protected final String NUMBER_LABEL = "NUMBER";
+  protected final String NUMBER_LABEL = "Number";
   protected final String LATA_LABEL = "LATA";
   protected final String OCN_LABEL = "OCN";
-  protected static final String AOCN_LABEL = "AOCN";
-  protected static final String RATE_CENTER_LABEL = "Rate Center";
-  protected static final String STATE_LABEL = "State";
-  protected static final String OCN_OVERALL_LABEL = "OCN Overall";
-  protected static final String EFFECTIVE_DATE_LABEL = "Effective Date";
+  protected final String AOCN_LABEL = "AOCN";
+  protected final String RATE_CENTER_LABEL = "Rate Center";
+  protected final String STATE_LABEL = "State";
+  protected final String OCN_OVERALL_LABEL = "OCN Overall";
+  protected final String EFFECTIVE_DATE_LABEL = "Effective Date";
+  protected final String DEFAULT_VALUE = "N/A";
 
   public RecordSerializer(Class<T> record)
   {

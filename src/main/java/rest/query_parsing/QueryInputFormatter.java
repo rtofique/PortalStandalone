@@ -67,7 +67,7 @@ public class QueryInputFormatter {
   {
     List<String> queries = Arrays.asList(queryString
         .trim()
-        .replaceAll("[-.;\\s]", "")
+        .replaceAll("[-.\\s]", "")
         .split(","));
 
     return queries;

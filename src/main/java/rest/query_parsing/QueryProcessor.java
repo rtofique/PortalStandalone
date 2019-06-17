@@ -117,6 +117,7 @@ public class QueryProcessor {
         .map(this::queryNumber)
         .collect(Collectors.toList());
 
+
     return queryOutputFormatter.generateResultResponse(outputRecords);
 
   }

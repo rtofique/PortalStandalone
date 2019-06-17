@@ -39,20 +39,17 @@ public class IgniteClientManager
 
   private void initializeConnectionInSeparateThread(ClientConfiguration clientCfg)
   {
-      Runnable r = new Runnable() {
+    new Thread(new Runnable() {
       @Override
       public void run() {
         client = Ignition.startClient(clientCfg);
       }
-    };
-
-    ExecutorService executor = Executors.newCachedThreadPool();
-    executor.submit(r);
+    }).start();
   }
 
   public IgniteClient getClient() throws UninitializedClientException
   {
-    if(client == null) throw new UninitializedClientException("Client has not been initialized yet");
+    if(client == null) throw new UninitializedClientException("Ignite client has not been initialized yet");
     return client;
   }
 
