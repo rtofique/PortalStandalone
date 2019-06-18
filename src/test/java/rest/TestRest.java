@@ -61,28 +61,50 @@ public class TestRest {
     igniteServerContainer.stop();
   }
 
-  @After
-  public void clearCaches()
+  @AfterClass
+  public static void clearCaches()
   {
     ignite.destroyCache(CACHE_NAME);
   }
 
   @Test
-  public void testServerResponseStatus()
+  public void test_Server_Response_To_Properly_Formed_URL()
   {
 
-    String numbers = "919360";
-
-    HttpResponse response = getUrlResponse(numbers);
-
+    String query = "/number?PhoneNumber=919360";
+    HttpResponse response = getUrlResponse(query);
     assertThat(response.getStatusLine().getStatusCode(), equalTo(HttpStatus.OK.value()));
 
   }
 
-  private HttpResponse getUrlResponse(String numbers)
+  @Test
+  public void test_Server_Response_To_Improperly_Formed_URL()
+  {
+    String query = "/number?Phone%20Number=919360";
+    HttpResponse response = getUrlResponse(query);
+    assertThat(response.getStatusLine().getStatusCode(), equalTo(HttpStatus.BAD_REQUEST.value()));
+  }
+
+  @Test
+  public void test_Server_Response_To_Single_Invalid_Phone_Number()
+  {
+    String query = "/number?PhoneNumber=919[360";
+    HttpResponse response = getUrlResponse(query);
+    assertThat(response.getStatusLine().getStatusCode(), equalTo(HttpStatus.BAD_REQUEST.value()));
+  }
+
+  @Test
+  public void test_Server_Response_To_Mixed_Invalid_Phone_Numbers()
+  {
+    String query = "/number?PhoneNumber=919360,567869,435@43,5678943,321";
+    HttpResponse response = getUrlResponse(query);
+    assertThat(response.getStatusLine().getStatusCode(), equalTo(HttpStatus.BAD_REQUEST.value()));
+  }
+
+  private HttpResponse getUrlResponse(String query)
   {
     int port = restApp.getMappedPort(8080);
-    String request = "http://127.0.0.1:" + port + "/number?PhoneNumber=" + numbers;
+    String request = "http://127.0.0.1:" + port + query;
     HttpUriRequest httpRequest = new HttpGet(request);
     System.out.println(httpRequest.toString());
 
@@ -96,7 +118,6 @@ public class TestRest {
 
     return response;
   }
-
 
   private static void populateCache()
   {
