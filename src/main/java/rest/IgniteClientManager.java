@@ -9,10 +9,10 @@ import org.apache.ignite.client.ClientCache;
 
 import org.apache.ignite.cache.CacheMode;
 import org.apache.ignite.configuration.CacheConfiguration;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-
+import org.springframework.context.annotation.PropertySource;
 
 
 /**
@@ -27,29 +27,30 @@ public class IgniteClientManager
 
   //currently a place holder value that will be configured to actually read from an application file
   //query each address until you pass
-  private final String address = "192.168.111.67:10800";
+  //@value is not being initialized right now due to the constructor not completing
+
+  @Value("${cache.addresses}")
+  private String address;
 
   private IgniteClient client = null;
 
+  //do min work in constructor
   public IgniteClientManager()
+  {}
+
+  private void setupClient()
   {
     final ClientConfiguration clientCfg = new ClientConfiguration().setAddresses(address);
-    initializeConnectionInSeparateThread(clientCfg);
-  }
+    client = Ignition.startClient(clientCfg);
 
-  private void initializeConnectionInSeparateThread(ClientConfiguration clientCfg)
-  {
-    new Thread(new Runnable() {
-      @Override
-      public void run() {
-        client = Ignition.startClient(clientCfg);
-      }
-    }).start();
   }
 
   public IgniteClient getClient() throws UninitializedClientException
   {
-    if(client == null) throw new UninitializedClientException("Ignite client has not been initialized yet");
+    if(client == null)
+    {
+      setupClient();
+    }
     return client;
   }
 

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: portal-standalone
+Implementation-Version: 0.1.0
+Built-By: rtofique
+Implementation-Vendor-Id: com.rayan
+Created-By: Apache Maven 3.6.1
+Build-Jdk: 1.8.0_211
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/portal-standalone
+

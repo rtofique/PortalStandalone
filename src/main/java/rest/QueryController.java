@@ -36,7 +36,7 @@ public class QueryController {
 
     @ApiOperation(value = "Get all the data stored in Bandwidth's database for this number")
     @GetMapping(path="/number")
-    public ResponseEntity<String> getQuery(@RequestParam(value="Phone Number") String userNumberQuery)
+    public ResponseEntity<String> getQuery(@RequestParam(value="PhoneNumber") String userNumberQuery)
     {
         QueryResultWrapper wrapper = queryProcessor.queryInput(userNumberQuery);
         return new ResponseEntity<>(wrapper.getResultBody(), wrapper.getHttpResponse());

@@ -2,24 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d974a62e-ad8d-42e2-bba1-8fcb5583e2b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/rest/TestRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/RecordSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/number_records/RecordSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/ValidRecordSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/number_records/ValidRecordSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryInputFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryInputFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/target/PortalStandalone-0.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/target/PortalStandalone-0.1.0.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/target/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rest/QueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rest/QueryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rest/TestRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rest/TestRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/rest/IgniteClientManager$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/rest/IgniteClientManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest/IgniteClientManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/RecordSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest/number_records/RecordSerializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/ValidRecordSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest/number_records/ValidRecordSerializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryInputFormatter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryInputFormatter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/rest/QueryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/rest/QueryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/rest/TestRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/rest/TestRest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="125" selection-end-column="5" />
+            <state relative-caret-position="730">
+              <caret line="152" column="12" selection-start-line="152" selection-start-column="12" selection-end-line="152" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4884#4885#0" expanded="true" />
@@ -49,10 +46,66 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8-sources.jar!/com/fasterxml/jackson/core/JsonGenerator.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rest/QueryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="1960" selection-start-line="1960" selection-end-line="1960" />
+            <state relative-caret-position="379">
+              <caret line="41" column="87" selection-start-line="41" selection-start-column="87" selection-end-line="41" selection-end-column="87" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryResultWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+              <folding>
+                <element signature="e#998#1018#1" expanded="true" />
+                <element signature="e#2013#2014#0" expanded="true" />
+                <element signature="e#2034#2035#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/rest/TestRest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="90" column="53" lean-forward="true" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="36" selection-start-column="36" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -72,25 +125,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/JSONResponseBodyGenerator.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/rest/TestRest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="390">
+              <caret line="211" column="20" lean-forward="true" selection-start-line="211" selection-start-column="20" selection-end-line="211" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -98,50 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bandwidth/engineering/correlator/enums/cache/IconectivStatus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bandwidth/engineering/correlator/dto/cache/RateCenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryOutputFormatter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rest/number_records/RecordSerializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rest/number_records/InvalidRecordSerializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="20">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -160,6 +156,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>outputFormatter</find>
+      <find>popu</find>
+      <find>spring-</find>
+      <find>spring-m</find>
+      <find>as</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -195,18 +195,21 @@
         <option value="$PROJECT_DIR$/src/main/java/query_parsing/JSONResponseBodyGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/query_parsing/QueryOutputFormatter.java" />
         <option value="$PROJECT_DIR$/src/main/java/query_parsing/QueryProcessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rest/QueryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/number_records/ValidNumberRecord.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/rest/query_parsing/JSONResponseBodyGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/UninitializedClientException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryInputFormatter.java" />
-        <option value="$PROJECT_DIR$/src/test/java/rest/TestRest.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/number_records/RecordSerializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/number_records/ValidRecordSerializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryProcessor.java" />
+        <option value="$PROJECT_DIR$/src/Dockerfile" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/rest/QueryController.java" />
+        <option value="$PROJECT_DIR$/Dockerfile" />
+        <option value="$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/rest/TestRest.java" />
       </list>
     </option>
   </component>
@@ -241,6 +244,17 @@
             <path>
               <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
               <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -255,6 +269,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="correlator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
@@ -282,6 +304,11 @@
               <item name="rest" type="462c0819:PsiDirectoryNode" />
               <item name="query_parsing" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -298,6 +325,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -306,8 +334,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XML" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -322,7 +354,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.All in portal-standalone">
+    <configuration name="All in portal-standalone" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="portal-standalone" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="portal-standalone" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="portal-standalone" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="rest.Application" />
@@ -330,6 +383,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="src/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="src/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Docker.src/Dockerfile" />
+      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="JUnit.All in portal-standalone" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.src/Dockerfile" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -341,12 +422,44 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560343623660</updated>
-      <workItem from="1560343634066" duration="57233000" />
+      <workItem from="1560343634066" duration="81216000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 15h 48m 54s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 15h 49m 15s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 15h 51m 51s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 15h 54m 03s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 16h 23m 17s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 16h 32m 24s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 16h 40m 58s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 16h 47m 31s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 16h 48m 31s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.18 at 16h 49m 15s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57233000" />
+    <option name="totallyTimeSpent" value="81216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1920" height="974" extended-state="0" />
@@ -361,17 +474,17 @@
       <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.185836" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.32993197" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.33219954" />
-      <window_info anchor="bottom" id="Docker" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.414966" />
+      <window_info anchor="bottom" id="Docker" order="1" sideWeight="0.49928468" weight="0.32905984" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5007153" side_tool="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="4" />
       <window_info anchor="bottom" id="Version Control" order="5" />
       <window_info anchor="bottom" id="Spring" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32953367" />
-      <window_info anchor="bottom" id="Run" order="9" weight="0.32993197" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.39795917" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.32879817" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.31632653" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
@@ -403,13 +516,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/IQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parsing/QueryResultCollection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -421,19 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryResultWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="e#808#809#0" expanded="true" />
-            <element signature="e#835#836#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -462,13 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -637,28 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/QueryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
-          <folding>
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1887#1888#0" expanded="true" />
-            <element signature="e#1908#1909#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/ResponseBodyGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -722,23 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bandwidth/engineering/correlator/enums/cache/IconectivStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rest/TestRest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8-sources.jar!/com/fasterxml/jackson/core/JsonGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -756,6 +803,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/util/HostAndPortRange.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/rt.jar!/sun/reflect/DelegatingConstructorAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/Ignition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6585">
+          <caret line="589" selection-start-line="589" selection-end-line="589" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bandwidth/engineering/correlator/enums/cache/IconectivStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/number_records/ValidRecordSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
@@ -768,13 +839,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/target/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="125" selection-end-column="5" />
+        <state relative-caret-position="730">
+          <caret line="152" column="12" selection-start-line="152" selection-start-column="12" selection-end-line="152" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4884#4885#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="211" column="20" lean-forward="true" selection-start-line="211" selection-start-column="20" selection-end-line="211" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="e#998#1018#1" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
+            <element signature="e#2034#2035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryResultWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/QueryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="41" column="87" selection-start-line="41" selection-start-column="87" selection-end-line="41" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/rest/TestRest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="90" column="53" lean-forward="true" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
