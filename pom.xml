@@ -92,6 +92,13 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.12.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
@@ -146,59 +153,46 @@
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.4-SNAPSHOT-openshift</version>
-				<executions>
-					<execution>
-						<id>docker-build</id>
-						<phase>package</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-						<configuration>
-							<skip>${docker.image.skip}</skip>
-							<tag>latest</tag>
-							<repository>${docker.registry.namespace}/${project.artifactId}</repository>
-						</configuration>
-					</execution>
-					<execution>
-						<id>docker-push</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>push</goal>
-						</goals>
-						<configuration>
-							<skip>${docker.push.skip}</skip>
-						</configuration>
-					</execution>
-					<execution>
-						<id>docker-version-tag</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>tag</goal>
-						</goals>
-						<configuration>
-							<skip>${docker.push.versiontag.skip}</skip>
-							<tag>${project.version}</tag>
-						</configuration>
-					</execution>
-					<execution>
-						<id>docker-version-tag-push</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>push</goal>
-						</goals>
-						<configuration>
-							<skip>${docker.push.versiontag.skip}</skip>
-							<tag>${project.version}</tag>
-						</configuration>
-					</execution>
-				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.amashchenko.maven.plugin</groupId>
+				<artifactId>gitflow-maven-plugin</artifactId>
+				<version>1.10.0</version>
 				<configuration>
-					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-					<contextDirectory>target</contextDirectory>
-					<repository>${docker.registry.host}/${docker.registry.namespace}/${project.artifactId}</repository>
-					<tag>${docker.latest.tag}</tag>
+					<verbose>true</verbose>
+					<gitFlowConfig>
+						<productionBranch>release</productionBranch>
+						<developmentBranch>master</developmentBranch>
+						<featureBranchPrefix>feature/</featureBranchPrefix>
+						<releaseBranchPrefix>release-prep/</releaseBranchPrefix>
+						<hotfixBranchPrefix>hotfix/</hotfixBranchPrefix>
+					</gitFlowConfig>
+					<fetchRemote>true</fetchRemote>
+					<pushRemote>false</pushRemote>
+					<useSnapshotInHotfix>true</useSnapshotInHotfix>
+					<useSnapshotInRelease>true</useSnapshotInRelease>
+					<commitMessages>
+						<featureStartMessage>[@{featureName}] - update versions for feature branch</featureStartMessage>
+						<featureFinishMessage>[@{featureName}] - update versions for development branch</featureFinishMessage>
+
+						<hotfixStartMessage>[HOTFIX-PREP] - @{version} - update versions for hotfix</hotfixStartMessage>
+						<hotfixFinishMessage>[HOTFIX-PREP] - @{version} - update for next development version</hotfixFinishMessage>
+
+						<releaseStartMessage>[RELEASE-PREP] - @{version} - update versions for release</releaseStartMessage>
+						<releaseFinishMessage>[RELEASE-PREP] - @{version} - update for next development version</releaseFinishMessage>
+
+						<tagHotfixMessage>[HOTFIX] @{version}</tagHotfixMessage>
+						<tagReleaseMessage>[RELEASE] @{version}</tagReleaseMessage>
+					</commitMessages>
+					<skipFeatureVersion>true</skipFeatureVersion>
+					<preReleaseGoals>clean verify</preReleaseGoals>
+					<postReleaseGoals>clean verify</postReleaseGoals>
+					<preHotfixGoals>clean verify</preHotfixGoals>
+					<postHotfixGoals>clean verify</postHotfixGoals>
+					<featureNamePattern>TOOL-.*</featureNamePattern>
 				</configuration>
 			</plugin>
+
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
