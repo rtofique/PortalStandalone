@@ -35,7 +35,7 @@ public class TestRest {
   static int numRecords;
   static Network network = Network.newNetwork();
 
-  private static String CACHE_NAME = "Test_Cache";
+  private static String CACHE_NAME = "test_Cache";
 
 
   @BeforeClass
