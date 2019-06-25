@@ -69,6 +69,8 @@ public class TestRest {
 
     Thread.sleep(3000);
 
+
+
     try {
       igniteServerContainer.execInContainer("apache-ignite-fabric/bin/control.sh",  "--activate");
     } catch (IOException e) {
@@ -86,7 +88,7 @@ public class TestRest {
 
 
 
-    //populateCache();
+    populateCache();
 
     Map<String, String> env = new HashMap<>();
     env.put("cache_addresses", "ignite:" + 10800);

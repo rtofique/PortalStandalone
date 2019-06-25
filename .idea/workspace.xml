@@ -2,98 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d974a62e-ad8d-42e2-bba1-8fcb5583e2b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/IQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/NumberRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/RateCenterMixin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/ValidNumberRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PortalStandalone.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/IgniteClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/IgniteClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/QueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/NumberLookupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/UninitializedClientException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/UninitializedClientException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/InvalidNumberRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/InvalidNumberRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/InvalidRecordSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/NumberRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/RecordSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/ValidNumberRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/number_records/ValidRecordSerializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/GenericStringBodyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/GenericStringBodyGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/IQuery.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/InvalidInputException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/InvalidInputException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/JSONResponseBodyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/JSONResponseBodyGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryInputFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/QueryInputFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryOutputFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/QueryOutputFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/QueryProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/QueryResultWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/QueryResultWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rest/query_parsing/ResponseBodyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/ResponseBodyGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/rest/TestRest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/META-INF/maven/com.rayan/portal-standalone/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/META-INF/maven/com.rayan/portal-standalone/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bandwidth/engineering/correlator/dto/cache/IconectivTimedObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bandwidth/engineering/correlator/dto/cache/IconectivTimedObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bandwidth/engineering/correlator/dto/cache/RateCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bandwidth/engineering/correlator/dto/cache/RateCenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bandwidth/engineering/correlator/enums/cache/IconectivStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bandwidth/engineering/correlator/enums/cache/IconectivStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/NumberLookupController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/UninitializedClientException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/number_records/IQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/number_records/InvalidNumberRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/number_records/NumberRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/number_records/RateCenterMixin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/number_records/ValidNumberRecord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/GenericStringBodyGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/IgniteClientManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/InvalidInputException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/JSONResponseBodyGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/QueryInputFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/QueryOutputFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/QueryProcessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/QueryResultWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/number_lookup/number_records/number_lookup/query_parsing/ResponseBodyGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/git.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/git.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/IgniteClientManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/QueryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/UninitializedClientException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/InvalidNumberRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/InvalidRecordSerializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/NumberRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/RecordSerializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/ValidNumberRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/number_records/ValidRecordSerializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/GenericStringBodyGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/IQuery.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/InvalidInputException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/JSONResponseBodyGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryInputFormatter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryOutputFormatter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/QueryResultWrapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/rest/query_parsing/ResponseBodyGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/com/bandwidth/engineering/correlator/common/enums/ValuedEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/com/bandwidth/engineering/correlator/dto/cache/IconectivTimedObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/com/bandwidth/engineering/correlator/dto/cache/RateCenter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/com/bandwidth/engineering/correlator/enums/cache/IconectivStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/NumberLookupController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/UninitializedClientException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/number_records/IQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/number_records/InvalidNumberRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/number_records/NumberRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/number_records/RateCenterMixin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/number_records/ValidNumberRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/GenericStringBodyGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/IgniteClientManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/InvalidInputException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/JSONResponseBodyGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/QueryInputFormatter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/QueryOutputFormatter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/QueryProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/QueryResultWrapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/number_lookup/number_records/number_lookup/query_parsing/ResponseBodyGenerator.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/portal-standalone-0.1.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/IgniteClientManager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/IgniteClientManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/QueryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/UninitializedClientException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/number_records/InvalidNumberRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/number_records/InvalidRecordSerializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/number_records/NumberRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/number_records/RecordSerializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/number_records/ValidNumberRecord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/number_records/ValidRecordSerializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/GenericStringBodyGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/IQuery.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/InvalidInputException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/JSONResponseBodyGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/QueryInputFormatter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/QueryOutputFormatter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/QueryProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/QueryResultWrapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/rest/query_parsing/ResponseBodyGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-06-18T10-42-19_870-jvmRun1.dump" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-rest.TestRest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/rest.TestRest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/rest/TestRest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-06-25T12-05-16_213-jvmRun1.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/number_lookup/TestRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/number_lookup/TestRest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -109,51 +59,9 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/number_lookup/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="93" column="56" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/bandwidth/engineering/correlator/dto/cache/RateCenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/number_lookup/NumberLookupController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -166,28 +74,87 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/number_lookup/query_parsing/IgniteClientManager.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            <state relative-caret-position="-57">
+              <caret line="283" selection-start-line="283" selection-end-line="283" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/number_lookup/number_records/InvalidNumberRecord.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/client/thin/TcpClientCache.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+            <state relative-caret-position="228">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/number_lookup/UninitializedClientException.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/client/thin/ReliableChannel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="251">
+              <caret line="115" selection-start-line="115" selection-end-line="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/statements/RunAfters.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="369" selection-start-line="369" selection-end-line="369" />
+              <folding>
+                <element signature="e#2922#2923#0" expanded="true" />
+                <element signature="e#2966#2967#0" expanded="true" />
+                <element signature="e#10310#10449#0" expanded="true" />
+                <element signature="e#10448#10449#0" expanded="true" />
+                <element signature="e#11040#11204#0" expanded="true" />
+                <element signature="e#11203#11204#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runner/JUnitCore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-54">
+              <caret line="137" selection-start-line="137" selection-end-line="137" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/Suite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="386">
+              <caret line="128" selection-start-line="128" selection-end-line="128" />
+              <folding>
+                <element signature="e#4545#4546#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -351,6 +318,15 @@
               <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="number_lookup" type="462c0819:PsiDirectoryNode" />
+              <item name="number_records" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -373,6 +349,11 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="number_lookup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="portal-standalone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PortalStandalone" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -401,13 +382,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XML" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/number_lookup/number_records" />
-      <recent name="$PROJECT_DIR$/target" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/number_lookup/number_records" />
+      <recent name="$PROJECT_DIR$/target" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -499,18 +480,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_portal-standalone - 2019.06.24 at 14h 14m 22s.xml">
-      <configuration name="All in portal-standalone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_portal-standalone - 2019.06.24 at 14h 15m 53s.xml">
-      <configuration name="All in portal-standalone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_portal-standalone - 2019.06.24 at 14h 42m 49s.xml">
-      <configuration name="All in portal-standalone" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_portal-standalone - 2019.06.24 at 14h 46m 54s.xml">
-      <configuration name="All in portal-standalone" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_portal-standalone - 2019.06.24 at 14h 47m 52s.xml">
       <configuration name="All in portal-standalone" configurationId="JUnit" />
     </history-entry>
@@ -529,9 +498,21 @@
     <history-entry file="All_in_portal-standalone - 2019.06.25 at 11h 59m 34s.xml">
       <configuration name="All in portal-standalone" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.25 at 12h 56m 17s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.25 at 12h 57m 09s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.25 at 13h 01m 20s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_portal-standalone - 2019.06.25 at 13h 03m 14s.xml">
+      <configuration name="All in portal-standalone" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164161000" />
+    <option name="totallyTimeSpent" value="164672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="811" extended-state="6" />
@@ -545,7 +526,7 @@
       <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32993197" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.2573018" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.2573018" />
       <window_info anchor="bottom" id="Docker" order="2" sideWeight="0.49928468" weight="0.32879817" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50106496" side_tool="true" weight="0.2585034" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" />
@@ -557,7 +538,7 @@
       <window_info anchor="bottom" id="Run" order="10" sideWeight="0.49893504" weight="0.32267037" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="13" weight="0.38664812" />
+      <window_info active="true" anchor="bottom" id="Debug" order="13" visible="true" weight="0.38664812" />
       <window_info anchor="bottom" id="TODO" order="14" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -574,8 +555,31 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java</url>
+          <line>283</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>phoneNumber + &quot;0&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>cache.put(phoneNumber + &quot;0&quot;, rcIterable);</expression-string>
         <language-id>JAVA</language-id>
@@ -594,20 +598,11 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/number_records/RecordSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/number_records/RecordSerializer.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="95" column="37" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
+        <state relative-caret-position="457">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
         </state>
       </provider>
     </entry>
@@ -720,46 +715,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/target/application.properties" />
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/statements/RunBefores.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/statements/RunAfters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="369" selection-start-line="369" selection-end-line="369" />
-          <folding>
-            <element signature="e#2922#2923#0" expanded="true" />
-            <element signature="e#2966#2967#0" expanded="true" />
-            <element signature="e#10310#10449#0" expanded="true" />
-            <element signature="e#10448#10449#0" expanded="true" />
-            <element signature="e#11040#11204#0" expanded="true" />
-            <element signature="e#11203#11204#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -770,16 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/Suite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
-          <folding>
-            <element signature="e#4545#4546#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bandwidth/engineering/correlator/enums/cache/IconectivStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -787,31 +737,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runner/JUnitCore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/client/thin/TcpClientChannel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="166" column="53" selection-start-line="166" selection-start-column="53" selection-end-line="166" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/client/thin/ReliableChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="161" selection-start-line="161" selection-end-line="161" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/client/thin/TcpClientCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -980,22 +909,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="93" column="56" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/PortalStandalone.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/PortalStandalone.iml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/number_lookup/NumberLookupController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1010,6 +927,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/number_lookup/TestRest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="283" selection-start-line="283" selection-end-line="283" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/client/thin/TcpClientCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/2.5.0/ignite-core-2.5.0-sources.jar!/org/apache/ignite/internal/client/thin/ReliableChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="115" selection-start-line="115" selection-end-line="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/statements/RunAfters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/Suite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="e#4545#4546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="369" selection-start-line="369" selection-end-line="369" />
+          <folding>
+            <element signature="e#2922#2923#0" expanded="true" />
+            <element signature="e#2966#2967#0" expanded="true" />
+            <element signature="e#10310#10449#0" expanded="true" />
+            <element signature="e#10448#10449#0" expanded="true" />
+            <element signature="e#11040#11204#0" expanded="true" />
+            <element signature="e#11203#11204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runner/JUnitCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
         </state>
       </provider>
     </entry>
