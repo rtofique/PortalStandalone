@@ -20,6 +20,7 @@ import org.apache.ignite.configuration.ClientConfiguration;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
 
+import org.apache.ignite.configuration.IgniteConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.output.OutputFrame;
@@ -59,17 +60,25 @@ public class TestRest {
 
   @BeforeClass
   public static void setupIgnite() throws InterruptedException {
+
+    //set config uri path as env variable
+    //add config file as volume
+
+    Map<String, String> igniteEnv = new HashMap<>();
+
+    //igniteEnv.put("CONFIG_URI", "file:///opt/etc/ignite.xml");
+
     igniteServerContainer =
         new GenericContainer("apacheignite/ignite:2.5.0")
             .withNetwork(network)
+            .withEnv(igniteEnv)
             .withNetworkAliases("ignite")
             .withExposedPorts(10800);
 
     igniteServerContainer.start();
+    handleContainerLogger(igniteServerContainer);
 
     Thread.sleep(3000);
-
-
 
     try {
       igniteServerContainer.execInContainer("apache-ignite-fabric/bin/control.sh",  "--activate");
@@ -83,12 +92,11 @@ public class TestRest {
 
 
 
-
     mapper = new ObjectMapper();
 
 
 
-    populateCache();
+    //populateCache();
 
     Map<String, String> env = new HashMap<>();
     env.put("cache_addresses", "ignite:" + 10800);
@@ -96,7 +104,6 @@ public class TestRest {
     restApp = new GenericContainer<>("test-number_lookup:latest").withEnv(env).withNetwork(network).withExposedPorts(8080);
     restApp.start();
 
-    handleContainerLogger(restApp);
   }
 
   @AfterClass
@@ -108,7 +115,7 @@ public class TestRest {
   @AfterClass
   public static void clearCaches()
   {
-    //ignite.destroyCache(CACHE_NAME);
+    ignite.destroyCache(CACHE_NAME);
   }
 
   @Test
