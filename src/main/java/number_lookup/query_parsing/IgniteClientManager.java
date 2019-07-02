@@ -46,7 +46,7 @@ public class IgniteClientManager
 
   public IgniteClient getClient()
   {
-    logger.info("Ignite address: " + address + " ********************************");
+    System.out.println("Ignite address: " + address + " ********************************");
     if(client == null)
     {
       setupClient();
