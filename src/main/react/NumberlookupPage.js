@@ -1,6 +1,10 @@
 import React from 'react';
 import NumberForm from "./NumberForm";
 import NumberLookupOutput from "./NumberLookupOutput";
+import {Navigation, Link, Note, BandwidthProvider, Spacing} from '@bandwidth/shared-components';
+import styled from 'styled-components';
+
+
 
 export default class NumberlookupPage extends React.Component{
 
@@ -8,7 +12,7 @@ export default class NumberlookupPage extends React.Component{
 	{
 		super(props);
 		this.handleRequestSubmission = this.handleRequestSubmission.bind(this);
-		this.state = {numberInput : ''};
+		this.state = {numberInput : '', inputSubmitted: false};
 	}
 
 	/**
@@ -18,18 +22,57 @@ export default class NumberlookupPage extends React.Component{
 	 */
 	handleRequestSubmission(submission)
 	{
-		this.setState({numberInput : submission});
+		this.setState({numberInput : submission, inputSubmitted: true});
 	}
+
+
+
 
 	render()
 	{
 		const input = this.state.numberInput;
+		const inputSubmitted = this.state.inputSubmitted;
+		let outputForm;
+
+		if(inputSubmitted)
+		{
+			outputForm = <NumberLookupOutput output = {input} />;
+		}
+		else
+		{
+			outputForm = <NumberLookupOutput output = "" />;
+		}
+
+		const NavBar = () => (
+				<Navigation>
+					<Link.Wrap to ="/">
+						<Navigation.Title>Bandwidth Tooling Portal</Navigation.Title>
+					</Link.Wrap>
+				</Navigation>
+		);
+
 
 		return (
-			<div>
-				<NumberForm onRequestSubmission = {this.handleRequestSubmission} />
-				<NumberLookupOutput output = {input} />
-			</div>
+				<BandwidthProvider>
+				<div>
+					<NavBar />
+					<Spacing size = "xs">
+						<h1>Number Lookup</h1>
+					</Spacing>
+					<Spacing size = "xs">
+						<Note>This tools returns all the records associated with this number in the Bandwidth databases.</Note>
+					</Spacing>
+
+					<Spacing size = "md">
+						<NumberForm onRequestSubmission = {this.handleRequestSubmission} />
+					</Spacing>
+
+					<Spacing size = "md">
+						<NumberLookupOutput output = {input} />
+					</Spacing>
+
+				</div>
+				</BandwidthProvider>
 		);
 	}
 }

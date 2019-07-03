@@ -7,10 +7,25 @@ import React, { Component } from 'react';
 
 export default class NumberLookupOutput extends React.Component
 {
+
+
+	getJSONObj()
+	{
+		if(this.props.output === "") return "abc";
+		let obj = JSON.stringify(this.props.output);
+		console.log(obj);
+		return obj;
+	}
+
 	render()
 	{
+		const obj = this.getJSONObj();
 		return (
-				<h1>{this.props.output}</h1>
+				<div>
+					<h3>{obj}</h3>
+				</div>
 		);
 	}
 }
+
+
