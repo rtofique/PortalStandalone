@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-
-//for now this will simply return the json output in a box
-
-
-//the json has already been passed in props to this component
+import ResultTable from "./ResultTable";
+import { validity } from './NumberLookupEnums';
 
 export default class NumberLookupOutput extends React.Component
 {
 
-
-	getJSONObj()
+	getJSONValidity()
 	{
-		if(this.props.output === "") return "abc";
-		let obj = JSON.stringify(this.props.output);
-		console.log(obj);
-		return obj;
+		if(this.props.output === "") return validity.empty;
+		return this.props.output[0].jsonType;
 	}
 
 	render()
 	{
-		const obj = this.getJSONObj();
+		const payloadValidity = this.getJSONValidity();
+
+		let resultBody = (payloadValidity != validity.empty) ?
+				<ResultTable validity = {payloadValidity} results = {this.props.output}/> :
+				"";
+
+
 		return (
 				<div>
-					<h3>{obj}</h3>
+					{resultBody}
 				</div>
 		);
 	}

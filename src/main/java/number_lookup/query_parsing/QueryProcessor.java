@@ -63,7 +63,7 @@ public class QueryProcessor {
 
     for(final String key : keys)
     {
-      System.out.println(key);
+      logger.info(key);
     }
 
   }
@@ -80,6 +80,8 @@ public class QueryProcessor {
   private ValidNumberRecord queryNumber(String query)
   {
 
+    //printAllKeys();
+
     String formattedQuery = queryInputFormatter.formatQuery(query);
     TreeSet<RateCenter> result = findIgniteRecord((formattedQuery));
 
@@ -90,6 +92,8 @@ public class QueryProcessor {
     }
 
     if(result == null) return new ValidNumberRecord(formattedQuery);
+
+
 
     return new ValidNumberRecord(formattedQuery, result);
   }

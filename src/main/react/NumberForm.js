@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TextArea, Button} from '@bandwidth/shared-components';
+import {TextArea, Button, FileLoader} from '@bandwidth/shared-components';
 import styled from 'styled-components';
 
 
@@ -9,9 +9,15 @@ import styled from 'styled-components';
 
 
 const Label = styled.label`
-	margin-bottom:30px;
+	margin-bottom:15px;
 	display:block;
 `;
+
+const PaddedForm = styled.div`
+	margin-top:15px;
+	display:block;
+`;
+
 
 export default class NumberForm extends React.Component {
 
@@ -57,17 +63,19 @@ export default class NumberForm extends React.Component {
 	{
 		//JSX inside the render element
 		return (
-		<div>
+		<PaddedForm>
 			<form  onSubmit= {this.handleSubmit}>
 				<Label htmlFor="numberfield">
 					Phone Numbers:
 					<TextArea id="numberfield" type="text" placeholder={this.state.placeholder} onChange={this.handleChange} />
 				</Label>
+				<FileLoader/>
+
 				<Button type="submit" value="Submit">
 						Submit
 				</Button>
 			</form>
-		</div>
+		</PaddedForm>
 		);
 	}
 

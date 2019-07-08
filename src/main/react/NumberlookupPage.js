@@ -2,7 +2,6 @@ import React from 'react';
 import NumberForm from "./NumberForm";
 import NumberLookupOutput from "./NumberLookupOutput";
 import {Navigation, Link, Note, BandwidthProvider, Spacing} from '@bandwidth/shared-components';
-import styled from 'styled-components';
 
 
 
@@ -54,24 +53,25 @@ export default class NumberlookupPage extends React.Component{
 
 		return (
 				<BandwidthProvider>
-				<div>
-					<NavBar />
-					<Spacing size = "xs">
-						<h1>Number Lookup</h1>
-					</Spacing>
-					<Spacing size = "xs">
-						<Note>This tools returns all the records associated with this number in the Bandwidth databases.</Note>
-					</Spacing>
+					<div>
+						<NavBar />
+						<Spacing size = "xs">
+							<h1>Number Lookup</h1>
+						</Spacing>
+						<Spacing size = "xs">
+							<Note>This tools returns all the records associated with this number in the Bandwidth databases.</Note>
+						</Spacing>
 
-					<Spacing size = "md">
-						<NumberForm onRequestSubmission = {this.handleRequestSubmission} />
-					</Spacing>
+						<Spacing size = "xs">
+							<NumberForm onRequestSubmission = {this.handleRequestSubmission} />
+						</Spacing>
 
-					<Spacing size = "md">
-						<NumberLookupOutput output = {input} />
-					</Spacing>
 
-				</div>
+						<Spacing size = "md">
+							<NumberLookupOutput output = {input} />
+						</Spacing>
+
+					</div>
 				</BandwidthProvider>
 		);
 	}
