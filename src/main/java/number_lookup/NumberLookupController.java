@@ -6,6 +6,8 @@ package number_lookup;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,14 +34,13 @@ public class NumberLookupController {
     QueryProcessor queryProcessor;
 
 
-
-    private final String INVALID_INPUT_ERROR = "The given input is invalid. It needs to be in the format (XXXXXXX) or (XXXXXXA), where X = a number from 1-9";
-
     @ApiOperation(value = "Get all the data stored in Bandwidth's database for this number")
-    @GetMapping(path="/number")
-    public ResponseEntity<String> getQuery(@RequestParam(value="PhoneNumber") String userNumberQuery)
+    @PostMapping(path="/number", headers = {"X-HTTP-Method-Override=GET"})
+    public ResponseEntity<String> getQuery(@RequestBody String userNumberQuery)
     {
+        System.out.println(userNumberQuery);
         QueryResultWrapper wrapper = queryProcessor.queryInput(userNumberQuery);
+        System.out.println(wrapper.getResultBody());
         return new ResponseEntity<>(wrapper.getResultBody(), wrapper.getHttpResponse());
     }
 

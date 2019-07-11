@@ -10,12 +10,12 @@ public class InvalidNumberRecord extends NumberRecord {
   private final String status;
   private final String jsonType = "$INVALID";
 
-  public InvalidNumberRecord(String query, String queryID)
+  public InvalidNumberRecord(String query, String queryID, String status)
   {
     super(query);
     this.queryID = queryID;
     //maybe make this more descriptive later
-    this.status = "failed for x reason";
+    this.status = status;
   }
 
   public String getQueryID() {

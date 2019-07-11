@@ -5,7 +5,11 @@ import { validity } from './NumberLookupEnums';
 export default class NumberLookupOutput extends React.Component
 {
 
-	getJSONValidity()
+	/**
+	 * Controller that simply determines if need to show output or not
+	 * @returns {string|*}
+	 */
+	isEmpty()
 	{
 		if(this.props.output === "") return validity.empty;
 		return this.props.output[0].jsonType;
@@ -13,10 +17,10 @@ export default class NumberLookupOutput extends React.Component
 
 	render()
 	{
-		const payloadValidity = this.getJSONValidity();
+		const isOutputEmpty = this.isEmpty();
 
-		let resultBody = (payloadValidity != validity.empty) ?
-				<ResultTable validity = {payloadValidity} results = {this.props.output}/> :
+		let resultBody = (isOutputEmpty != validity.empty) ?
+				<ResultTable results = {this.props.output} timestamp = {this.props.timestamp}/> :
 				"";
 
 

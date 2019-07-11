@@ -19,9 +19,9 @@ export default class NumberlookupPage extends React.Component{
 	 * @param submission
 	 * This function is passed to NumberForm so that request and response are lifted up to this componenent and can thus be passed on to the output dialogue
 	 */
-	handleRequestSubmission(submission)
+	handleRequestSubmission(submission, timestamp)
 	{
-		this.setState({numberInput : submission, inputSubmitted: true});
+		this.setState({numberInput : submission, inputSubmitted: true, dateTime:timestamp});
 	}
 
 
@@ -59,7 +59,8 @@ export default class NumberlookupPage extends React.Component{
 							<h1>Number Lookup</h1>
 						</Spacing>
 						<Spacing size = "xs">
-							<Note>This tools returns all the records associated with this number in the Bandwidth databases.</Note>
+							<Note>This tools returns all the records associated with an NPA-NXX-Block number in the Bandwidth databases. You can enter multiple values separated by a comma, or upload a csv file.
+								If a phone number is not found, it will default to searching for that number's NPA-NXX value with an 'A' block number.</Note>
 						</Spacing>
 
 						<Spacing size = "xs">
@@ -68,7 +69,7 @@ export default class NumberlookupPage extends React.Component{
 
 
 						<Spacing size = "md">
-							<NumberLookupOutput output = {input} />
+							<NumberLookupOutput output = {input} timestamp = {this.state.dateTime} />
 						</Spacing>
 
 					</div>

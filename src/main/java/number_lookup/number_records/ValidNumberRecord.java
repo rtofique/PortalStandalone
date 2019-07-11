@@ -1,6 +1,8 @@
 package number_lookup.number_records;
 
 import com.bandwidth.engineering.correlator.dto.cache.RateCenter;
+import com.bandwidth.engineering.correlator.enums.cache.IconectivStatus;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 
 public class ValidNumberRecord extends NumberRecord {
 
-  private final Iterable<RateCenter> rateCenters;
+  private final RateCenter rateCenter;
   private final boolean recordFound;
   private final String jsonType = "$VALID";
 
@@ -17,14 +19,14 @@ public class ValidNumberRecord extends NumberRecord {
   public ValidNumberRecord(String query, Iterable<RateCenter> rateCenters)
   {
     super(query);
-    this.rateCenters = rateCenters;
+    this.rateCenter = getFirstRateCenter(rateCenters);
     this.recordFound = true;
   }
 
   public ValidNumberRecord(String query)
   {
     super(query);
-    this.rateCenters = new ArrayList<>();
+    this.rateCenter = createNullRateCenter();
     this.recordFound = false;
   }
 
@@ -38,8 +40,32 @@ public class ValidNumberRecord extends NumberRecord {
     return recordFound;
   }
 
-  public Iterable<RateCenter> getRateCenters() {
+  /*public Iterable<RateCenter> getRateCenters() {
     return rateCenters;
+  }*/
+
+  public RateCenter getRateCenter()
+  {
+    return this.rateCenter;
+  }
+
+  private RateCenter createNullRateCenter()
+  {
+    String na = "N/A";
+    final IconectivStatus status = IconectivStatus.from(null);
+    RateCenter rc = new RateCenter(na, na, na, na, na, na, status,
+        LocalDateTime.of(0000, 1, 1, 0, 0));
+
+    return rc;
+  }
+
+  private RateCenter getFirstRateCenter(Iterable<RateCenter> rateCenters)
+  {
+    for(RateCenter r  : rateCenters)
+    {
+      return r;
+    }
+    return null;
   }
 
 }

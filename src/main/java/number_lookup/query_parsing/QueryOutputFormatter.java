@@ -32,20 +32,12 @@ public class QueryOutputFormatter {
    * @param records
    * @return
    */
-  public QueryResultWrapper generateResultResponse(List<? extends NumberRecord> records)
+  public QueryResultWrapper generateQueryResponse(List<? extends NumberRecord> records)
   {
-    //calculate json response here
+    //if all bad- do bad request- otherwise return 200
     String jsonRepresentation = responseBodyGenerator.generateResponseBody(records);
 
-    //if(records.isEmpty()) return new QueryResultWrapper(jsonRepresentation, HttpStatus.NO_CONTENT);
-    //ask if this works
     if(!records.isEmpty() && records.get(0) instanceof InvalidNumberRecord) return new QueryResultWrapper(jsonRepresentation, HttpStatus.BAD_REQUEST);
-    /*for(NumberRecord record : records)
-    {
-        ValidNumberRecord validRecord = (ValidNumberRecord) record;
-        if(!validRecord.isRecordValid()) return new QueryResultWrapper(jsonRepresentation, Httpsta);
-    }*/
-
     return new QueryResultWrapper(jsonRepresentation, HttpStatus.OK);
 
   }

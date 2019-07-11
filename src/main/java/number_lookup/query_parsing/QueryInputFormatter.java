@@ -1,5 +1,6 @@
 package number_lookup.query_parsing;
 
+import java.util.LinkedList;
 import number_lookup.number_records.InvalidNumberRecord;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class QueryInputFormatter {
   public String formatQuery(String query)
   {
     if(query.length() == 6) return query + "A";
-    else return query.substring(0, 7);
+    else return query.replace('a', 'A').substring(0, 7);
   }
 
   /**
@@ -52,24 +53,31 @@ public class QueryInputFormatter {
     {
       String query = queryList.get(i);
       if(!isValidQuery(query))
-        invalidNumbers.add(new InvalidNumberRecord(query, i + 1 + ""));
+        invalidNumbers.add(new InvalidNumberRecord(query, i + 1 + "", generateErrorMessage(query)));
 
     }
 
     return invalidNumbers;
   }
 
+
   /**
    * @param queryString Original list of csv queries
+   * if a query is six digits, add block 1-9 to it. Empty queries are considered permissible but feedback must be returned to user about them (hence, use of a -1 limit)
+   * The last element is removed if empty because we do not want to consider empty elements after a concluding comma.
    * @return a sanitized list of all the numbers in the query
    */
   public List<String> prepareQueries(String queryString)
   {
-    List<String> queries = Arrays.asList(queryString
+    LinkedList<String> queries = new LinkedList<>(Arrays.asList(queryString
         .trim()
         .replaceAll("[-.\\s]", "")
-        .split(","));
+        .split(",", -1)));
 
+    if(queries.get(queries.size() - 1).length() == 0)
+    {
+      queries.removeLast();
+    }
     return queries;
   }
   /**
@@ -80,6 +88,43 @@ public class QueryInputFormatter {
   public boolean isBlockQuery(String query)
   {
     return query.matches("\\d{6}A");
+  }
+
+
+  private String generateErrorMessage(String query)
+  {
+    StringBuilder message = new StringBuilder();
+    if(query.length() < 6) message.append("Wrong input length: " + query.length() + ". Input must include at least 6 numbers.\n");
+    if(query.length() != 0 && !query.matches("(\\d)+A?")) message.append("Invalid characters at indices: " + findInvalidCharacterIndexes(query));
+    return message.toString();
+  }
+
+  private String findInvalidCharacterIndexes(String query)
+  {
+    StringBuilder indices = new StringBuilder();
+    for(int i = 0; i < Math.min(query.length(), 6); i++)
+    {
+
+      if(!Character.isDigit(query.charAt(i))) indices.append(i + ", ");
+    }
+
+    if((query.length() == 7) && (!Character.isDigit(query.charAt(6)) && query.charAt(6) != 'A' || query.charAt(6) != 'a')) indices.append(6 +",");
+    return indices.toString().substring(0, indices.length() - 2);
+  }
+
+  private List<String> addAllBlockQueries(String query)
+  {
+    List<String> list = new ArrayList<>();
+    if(query.length() == 6)
+    {
+      list.add(query + "A");
+      for(int i = 1; i <= 9; i++)
+      {
+        list.add(query + i);
+      }
+    }
+
+    return list;
   }
 
   @Bean

@@ -6,20 +6,33 @@ import TableHeader from './TableHeader';
 
 function ValidTableRow(props)
 {
+  let json = props.json;
+  let rateCenter = json.rateCenter;
+  let date = rateCenter.effectiveDate;
+  let blockNumber = json.query.charAt(6);
+  let npanxx = json.query.substring(0, 3) + "-" + json.query.substring(3, 6);
+
+
   return [
-    (<Table.Cell key = {"1"}>1</Table.Cell>),
-    (<Table.Cell key = {"2"}>{props.json.query}</Table.Cell>),
-    (<Table.Cell key = {"3"}>Rate Centers </Table.Cell>),
-    (<Table.Cell key = {"4"}> {props.json.recordFound.toString()}</Table.Cell>)
+    (<Table.Cell key = {"2"}>{npanxx}</Table.Cell>),
+    (<Table.Cell key = {"3"}>{blockNumber}</Table.Cell>),
+    (<Table.Cell key = {"4"}>{json.recordFound.toString()}</Table.Cell>),
+    (<Table.Cell key = {"5"}>{rateCenter.lata}</Table.Cell>),
+    (<Table.Cell key = {"6"}>{rateCenter.ocn}</Table.Cell>),
+    (<Table.Cell key = {"7"}>{rateCenter.aocn}</Table.Cell>),
+    (<Table.Cell key = {"8"}>{rateCenter.rateCenter}</Table.Cell>),
+    (<Table.Cell key = {"9"}>{rateCenter.state}</Table.Cell>),
+    (<Table.Cell key = {"10"}>{rateCenter.ocnOverall}</Table.Cell>),
+    (<Table.Cell key = {"11"}>{date.year + "-" + date.monthValue + "-" + date.dayOfMonth}</Table.Cell>)
+
   ]
 }
 
 function InvalidTableRow(props)
 {
   return [
-    (<Table.Cell key = {"1"}>{props.json.queryID}</Table.Cell>),
-    (<Table.Cell key = {"2"}>{props.json.query}</Table.Cell>),
-    (<Table.Cell key = {"3"}>{props.json.status} </Table.Cell>)
+    (<Table.Cell key = {"1"}>{props.json.query}</Table.Cell>),
+    (<Table.Cell key = {"3"} style = {{color:"#ff391a"}}>{props.json.status} </Table.Cell>)
   ]
 }
 
@@ -28,37 +41,23 @@ function InvalidTableRow(props)
 export default class ResultTable extends React.Component {
 
 
-  resolveHeading()
-  {
-    switch (this.props.validity) {
-      case validity.empty:
-        return "";
-      case validity.valid:
-        return "Query Resolved Properly";
-        break;
-      case validity.invalid:
-        return "Improper phone numbers in query. See below for more details";
-    }
-  }
-
-
-
   render()
   {
-    console.log(this.props.results);
+    //let color = (this.props.validity === validity.invalid) ? "#ff391a" : "#00aa6c";
     return(
 
 
       <div>
-        <h1>{this.resolveHeading()} </h1>
+        <h1 style={{color:"#00aaa6c"}}>{"Query results:"} </h1>
+        <h3>{this.props.timestamp}</h3>
         <Table
             headers = {
-              <TableHeader validity = {this.props.validity}> </TableHeader>
+              <TableHeader />
             }>
 
           {this.props.results.map(record => (
               <Table.Row key = {record.query}>
-                { (this.props.validity === validity.valid) ? (
+                { (record.jsonType === validity.valid) ? (
                     <ValidTableRow json = {record} key = {record.query}/>
                 ): (
                     <InvalidTableRow json = {record} key = {record.query}/>
@@ -74,3 +73,5 @@ export default class ResultTable extends React.Component {
 
 }
 
+//make validity for each record instead of one record
+//one ehader only

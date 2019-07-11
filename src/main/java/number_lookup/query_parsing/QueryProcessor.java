@@ -112,17 +112,18 @@ public class QueryProcessor {
 
     List<String> queries = queryInputFormatter.prepareQueries(userQuery);
 
-    //run a check on the validity of the data first and return all the invalid numbers in the list
     List<InvalidNumberRecord> invalidNumbers =  queryInputFormatter.findInvalidNumbers(queries);
 
-    if(!invalidNumbers.isEmpty()) return queryOutputFormatter.generateResultResponse(invalidNumbers);
+    //if(!invalidNumbers.isEmpty()) return queryOutputFormatter.generateQueryResponse(invalidNumbers);
 
     List<ValidNumberRecord> outputRecords =  queries
         .stream()
         .map(this::queryNumber)
         .collect(Collectors.toList());
 
-    return queryOutputFormatter.generateResultResponse(outputRecords);
+    //weave them together
+
+    return queryOutputFormatter.generateQueryResponse(outputRecords);
 
   }
 
@@ -140,6 +141,7 @@ public class QueryProcessor {
 
     try
     {
+
       result = (TreeSet<RateCenter>)igniteClientManager.getClient().cache(CACHE_NAME).get(formattedQuery);
     }
     catch(ClientServerError  e)
