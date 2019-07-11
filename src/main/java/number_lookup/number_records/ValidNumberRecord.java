@@ -16,16 +16,16 @@ public class ValidNumberRecord extends NumberRecord {
   private final String jsonType = "$VALID";
 
 
-  public ValidNumberRecord(String query, Iterable<RateCenter> rateCenters)
+  public ValidNumberRecord(String id, String query, Iterable<RateCenter> rateCenters)
   {
-    super(query);
+    super(id, query);
     this.rateCenter = getFirstRateCenter(rateCenters);
     this.recordFound = true;
   }
 
-  public ValidNumberRecord(String query)
+  public ValidNumberRecord(String id, String query)
   {
-    super(query);
+    super(id, query);
     this.rateCenter = createNullRateCenter();
     this.recordFound = false;
   }

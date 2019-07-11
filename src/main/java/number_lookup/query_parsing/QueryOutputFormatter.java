@@ -42,6 +42,27 @@ public class QueryOutputFormatter {
 
   }
 
+  public String generateErrorMessage(String query)
+  {
+    StringBuilder message = new StringBuilder();
+    if(query.length() < 6) message.append("Wrong input length: " + query.length() + ". Input must include at least 6 numbers.\n");
+    if(query.length() != 0 && !query.matches("(\\d)+A?")) message.append("Invalid characters at indices: " + findInvalidCharacterIndexes(query));
+    return message.toString();
+  }
+
+  private String findInvalidCharacterIndexes(String query)
+  {
+    StringBuilder indices = new StringBuilder();
+    for(int i = 0; i < Math.min(query.length(), 6); i++)
+    {
+
+      if(!Character.isDigit(query.charAt(i))) indices.append(i + ", ");
+    }
+
+    if((query.length() == 7) && (!Character.isDigit(query.charAt(6)) && query.charAt(6) != 'A' || query.charAt(6) != 'a')) indices.append(6 +",");
+    return indices.toString().substring(0, indices.length() - 2);
+  }
+
   @Bean
   public QueryOutputFormatter getOutputFormatter()
   {

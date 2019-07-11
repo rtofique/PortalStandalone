@@ -1,6 +1,7 @@
 package number_lookup.query_parsing;
 
 import java.util.NoSuchElementException;
+import number_lookup.number_records.NumberRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -77,10 +78,13 @@ public class QueryProcessor {
    * @return This returns a ValidNumberRecord which has all the data about the rate centers or null data for unresolved queries
    * @throws InvalidInputException
    */
-  private ValidNumberRecord queryNumber(String query)
+  private NumberRecord queryNumber(String query, int id)
   {
 
-    //printAllKeys();
+    if(!queryInputFormatter.isValidQuery(query))
+    {
+      return new InvalidNumberRecord(query, id +"", queryOutputFormatter.generateErrorMessage(query));
+    }
 
     String formattedQuery = queryInputFormatter.formatQuery(query);
     TreeSet<RateCenter> result = findIgniteRecord((formattedQuery));
@@ -91,11 +95,10 @@ public class QueryProcessor {
       result = findIgniteRecord((formattedQuery));
     }
 
-    if(result == null) return new ValidNumberRecord(formattedQuery);
+    if(result == null) return new ValidNumberRecord(id + "", formattedQuery);
 
 
-
-    return new ValidNumberRecord(formattedQuery, result);
+    return new ValidNumberRecord(id + "", formattedQuery, result);
   }
 
 
@@ -112,6 +115,7 @@ public class QueryProcessor {
 
     List<String> queries = queryInputFormatter.prepareQueries(userQuery);
 
+    /*
     List<InvalidNumberRecord> invalidNumbers =  queryInputFormatter.findInvalidNumbers(queries);
 
     //if(!invalidNumbers.isEmpty()) return queryOutputFormatter.generateQueryResponse(invalidNumbers);
@@ -123,8 +127,15 @@ public class QueryProcessor {
 
     //weave them together
 
-    return queryOutputFormatter.generateQueryResponse(outputRecords);
+    return queryOutputFormatter.generateQueryResponse(outputRecords);*/
 
+    List<NumberRecord> outputRecords = new ArrayList<>();
+    for(int i = 0; i < queries.size(); i++)
+    {
+      outputRecords.add(queryNumber(queries.get(i), i + 1));
+    }
+
+    return queryOutputFormatter.generateQueryResponse(outputRecords);
   }
 
 
