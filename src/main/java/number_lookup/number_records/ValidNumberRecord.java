@@ -18,14 +18,14 @@ public class ValidNumberRecord extends NumberRecord {
 
   public ValidNumberRecord(String id, String query, Iterable<RateCenter> rateCenters)
   {
-    super(id, query);
+    super(query, id);
     this.rateCenter = getFirstRateCenter(rateCenters);
     this.recordFound = true;
   }
 
   public ValidNumberRecord(String id, String query)
   {
-    super(id, query);
+    super(query, id);
     this.rateCenter = createNullRateCenter();
     this.recordFound = false;
   }

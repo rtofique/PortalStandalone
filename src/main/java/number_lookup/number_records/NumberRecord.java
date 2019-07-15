@@ -11,8 +11,9 @@ public abstract class NumberRecord implements IQuery {
 
   public NumberRecord(String query, String id)
   {
-    this.id = id;
     this.query = query;
+    this.id = id;
+
   }
 
   public String getQuery() {

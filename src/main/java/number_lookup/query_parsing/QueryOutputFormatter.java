@@ -45,7 +45,7 @@ public class QueryOutputFormatter {
   public String generateErrorMessage(String query)
   {
     StringBuilder message = new StringBuilder();
-    if(query.length() < 6) message.append("Wrong input length: " + query.length() + ". Input must include at least 6 numbers.\n");
+    if(query.length() < 6) message.append("Wrong input length: " + query.length() + ". Input must include at least 6 numbers.");
     if(query.length() != 0 && !query.matches("(\\d)+A?")) message.append("Invalid characters at indices: " + findInvalidCharacterIndexes(query));
     return message.toString();
   }

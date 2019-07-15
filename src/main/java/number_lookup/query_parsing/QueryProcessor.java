@@ -139,6 +139,7 @@ public class QueryProcessor {
   }
 
 
+
   /**
    * Find the record in the ignite database
    * @param formattedQuery
@@ -152,7 +153,6 @@ public class QueryProcessor {
 
     try
     {
-
       result = (TreeSet<RateCenter>)igniteClientManager.getClient().cache(CACHE_NAME).get(formattedQuery);
     }
     catch(ClientServerError  e)

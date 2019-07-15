@@ -38,9 +38,7 @@ public class NumberLookupController {
     @PostMapping(path="/number", headers = {"X-HTTP-Method-Override=GET"})
     public ResponseEntity<String> getQuery(@RequestBody String userNumberQuery)
     {
-        System.out.println(userNumberQuery);
         QueryResultWrapper wrapper = queryProcessor.queryInput(userNumberQuery);
-        System.out.println(wrapper.getResultBody());
         return new ResponseEntity<>(wrapper.getResultBody(), wrapper.getHttpResponse());
     }
 

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {Table} from '@bandwidth/shared-components';
 import { validity } from './NumberLookupEnums';
 import TableHeader from './TableHeader';
+import FileDownload from "./FileDownload";
+import styled from 'styled-components';
+
 
 
 function ValidTableRow(props)
@@ -36,31 +39,59 @@ function InvalidTableRow(props)
   ]
 }
 
+const HeadingDiv = styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content : space-between;
+`;
+
 
 
 export default class ResultTable extends React.Component {
 
+  constructor(props)
+  {
+    super(props);
+    this.isAllInvalid = this.isAllInvalid.bind(this);
+
+  }
+
+  isAllInvalid()
+  {
+    for(let query in this.props.results)
+    {
+      if(this.props.results[query].jsonType !== "$INVALID")
+      {
+        return false;
+      }
+    }
+    return true;
+  }
 
   render()
   {
     //let color = (this.props.validity === validity.invalid) ? "#ff391a" : "#00aa6c";
+    let counter =0;
     return(
 
 
       <div>
         <h1 style={{color:"#00aaa6c"}}>{"Query results:"} </h1>
-        <h3>{this.props.timestamp}</h3>
+        <HeadingDiv>
+          <h3>{this.props.timestamp}</h3>
+          <FileDownload jsonText = {this.props.results} timestamp = {this.props.timestamp} />
+        </HeadingDiv>
         <Table
             headers = {
-              <TableHeader />
+              <TableHeader isAllInvalid = {this.isAllInvalid}/>
             }>
 
           {this.props.results.map(record => (
-              <Table.Row key = {record.query}>
+              <Table.Row key = {++counter}>
                 { (record.jsonType === validity.valid) ? (
-                    <ValidTableRow json = {record} key = {record.query}/>
+                    <ValidTableRow json = {record} key = {++counter}/>
                 ): (
-                    <InvalidTableRow json = {record} key = {record.query}/>
+                    <InvalidTableRow json = {record} key = {++counter}/>
                 )}
               </Table.Row>
           ))}

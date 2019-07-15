@@ -18,13 +18,14 @@ const PaddedForm = styled.div`
 	display:block;
 `;
 
+const inputHelpText = "Please enter the numbers in a list format with each number on a new line or in a csv format...";
 
 export default class NumberForm extends React.Component {
 
 	constructor(props)
 	{
 		super(props);
-		this.state = {value : '', fileText : '', placeholder: 'Please enter the numbers you want to search using a csv format...'};
+		this.state = {value : '', fileText : '', placeholder: inputHelpText, uploadedFile : null};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,17 +34,21 @@ export default class NumberForm extends React.Component {
 		this.submitTextBox = this.submitTextBox.bind(this);
 	}
 
-	//on every keystroke handleChange is called which then updates the state
 	handleChange(event)
 	{
 		this.setState({value : event.target.value});
 	}
 
+	prepareTextForQuery(text)
+	{
+		text = text.replace(/\n/g, ",");
+		return text;
+	}
 
-	//not reading response
 	handleSubmit(text)
 	{
 		if(text.length == 0) return;
+		text = this.prepareTextForQuery(text);
 		fetch('http://localhost:8080/number/', {
 			method: 'POST',
 			headers : {
@@ -60,13 +65,11 @@ export default class NumberForm extends React.Component {
 
 	}
 
-	fileUpload;
 
 	handleFileUpload(file)
 	{
 		if(file)
 		{
-			this.fileUpload = file;
 			let reader = new FileReader();
 			let text = "";
 			reader.onload = () =>
@@ -84,7 +87,6 @@ export default class NumberForm extends React.Component {
 
 	submitTextBox(event)
 	{
-		console.log(this.state.value);
 		this.handleSubmit(this.state.value + "");
 		event.preventDefault();
 	}
@@ -100,8 +102,6 @@ export default class NumberForm extends React.Component {
 
 	render()
 	{
-		//JSX inside the render element
-		let file;
 
 		return (
 				<div>
@@ -116,8 +116,10 @@ export default class NumberForm extends React.Component {
 							</Button>
 						</form>
 					</PaddedForm>
-					<FileLoader value = {file} onChange = {files => this.handleFileUpload(files[0])}/>
-					<Button type="button" value="Upload File" onClick = { () => { this.submitFile()}}/>
+					<FileLoader value ={this.state.uploadedFile} onChange = {files => {
+						this.setState({uploadedFile : files}, () => { this.handleFileUpload(this.state.uploadedFile[0])});
+					}}/>
+					<Button style = {{"marginTop": 15}} type="button" onClick = { () => { this.submitFile()}}> Submit File </Button>
 
 				</div>
 		);
@@ -127,10 +129,8 @@ export default class NumberForm extends React.Component {
 
 
 //features
-//file
-//timestamp for dates in csv millis
-//file name as data for query time
 //bugs
+//check for ignite status before every request
 //multirow breaks
 //rows remain but header and whatever gets changed, not cleaning the table
 //fix appearances of file button

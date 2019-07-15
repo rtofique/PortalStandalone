@@ -11,7 +11,7 @@ public class InvalidNumberRecord extends NumberRecord {
 
   public InvalidNumberRecord(String query, String queryID, String status)
   {
-    super(queryID, query);
+    super(query, queryID);
     //maybe make this more descriptive later
     this.status = status;
   }
