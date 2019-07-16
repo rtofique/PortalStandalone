@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import ResultTable from "./ResultTable";
-import FileDownload from "./FileDownload";
+import {Loader} from '@bandwidth/shared-components';
+
 
 export default class NumberLookupOutput extends React.Component
 {
+
+	//when fetch is sent, use callback and paint loader instead f of result table
+	//when fetch is reevied use callback to paint result table instead
 
 	render()
 	{

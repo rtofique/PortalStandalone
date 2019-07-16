@@ -12,9 +12,12 @@ import org.springframework.context.annotation.Configuration;
  * This class performs the necessary operations to validate and transform the query so that it is suitable to go into the API
  */
 
+
+
 @Configuration
 public class QueryInputFormatter {
 
+  private String BLOCK_REGEX = "\\d{6}(A|a)";
   public QueryInputFormatter(){}
 
   /**
@@ -25,7 +28,7 @@ public class QueryInputFormatter {
    */
   public boolean isValidQuery(String query)
   {
-    return query.matches("\\d{6}A?") || query.matches("\\d{7,10}");
+    return query.matches(BLOCK_REGEX) || query.matches("\\d{7,10}");
   }
 
   /**
@@ -87,7 +90,7 @@ public class QueryInputFormatter {
    */
   public boolean isBlockQuery(String query)
   {
-    return query.matches("\\d{6}A");
+    return query.matches(BLOCK_REGEX);
   }
 
 

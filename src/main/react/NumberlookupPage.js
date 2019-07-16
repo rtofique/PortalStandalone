@@ -31,16 +31,6 @@ export default class NumberlookupPage extends React.Component{
 	{
 		const input = this.state.numberInput;
 		const inputSubmitted = this.state.inputSubmitted;
-		let outputForm;
-
-		if(inputSubmitted)
-		{
-			outputForm = <NumberLookupOutput output = {input} />;
-		}
-		else
-		{
-			outputForm = <NumberLookupOutput output = "" />;
-		}
 
 		const NavBar = () => (
 				<Navigation>

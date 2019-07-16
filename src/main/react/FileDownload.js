@@ -17,6 +17,8 @@ export default class FileDownload extends React.Component
     let headersString = this.createLine(entriesArray);
     lines.push(headersString);
 
+    console.log(outputJSON);
+
     for (let id in outputJSON)
     {
       entriesArray = [];
@@ -34,7 +36,7 @@ export default class FileDownload extends React.Component
       entriesArray.push(query.query.toString().substring(0, 6));
       //Block
       entriesArray.push(query.query.toString().substring(6, 7));
-      entriesArray.push(query.rateCenter.recordFound);
+      entriesArray.push(query.recordFound);
       entriesArray.push(query.rateCenter.lata);
       entriesArray.push(query.rateCenter.ocn);
       entriesArray.push(query.rateCenter.aocn);
