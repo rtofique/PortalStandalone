@@ -75,7 +75,7 @@ export default class FileDownload extends React.Component
   {
     return(
 
-        <Button style={{"margin-bottom": 5} }onClick = {() => { this.downloadCSVFile(this.props.jsonText, this.props.timestamp)}}> Save Table</Button>
+        <Button style={{"marginBottom": 5} }onClick = {() => { this.downloadCSVFile(this.props.jsonText, this.props.timestamp)}}> Save Table</Button>
     );
   }
 }

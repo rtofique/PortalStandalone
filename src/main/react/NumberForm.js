@@ -27,6 +27,8 @@ export default class NumberForm extends React.Component {
 		super(props);
 		this.state = {value : '', fileText : '', placeholder: inputHelpText, uploadedFile : null};
 
+		this.textAreaRef = React.createRef();
+
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleFileUpload = this.handleFileUpload.bind(this);
@@ -103,23 +105,30 @@ export default class NumberForm extends React.Component {
 	render()
 	{
 
+
 		return (
 				<div>
 					<PaddedForm>
 						<form  onSubmit= {this.submitTextBox}>
 							<Label htmlFor="numberfield">
 								Phone Numbers:
-								<TextArea id="numberfield" type="text" placeholder={this.state.placeholder} onChange={this.handleChange} />
+								<TextArea id ="numberfield" type="text" placeholder={this.state.placeholder} onChange={this.handleChange} ref={this.textAreaRef}/>
 							</Label>
 							<Button type="submit" value="Submit">
 									Submit
 							</Button>
+							<Button style = {{"marginLeft":5}} type={"button"} onClick = {() => {
+								this.textAreaRef.current.value = '';
+								this.setState({value: ''});
+							} }> Clear </Button>
 						</form>
 					</PaddedForm>
 					<FileLoader value ={this.state.uploadedFile} onChange = {files => {
 						this.setState({uploadedFile : files}, () => { this.handleFileUpload(this.state.uploadedFile[0])});
 					}}/>
-					<Button style = {{"marginTop": 15}} type="button" onClick = { () => { this.submitFile()}}> Submit File </Button>
+					<div>
+						<Button style = {{"marginTop": 15}} type="button" onClick = { () => { this.submitFile()}}> Submit File </Button>
+					</div>
 
 				</div>
 		);
@@ -131,6 +140,4 @@ export default class NumberForm extends React.Component {
 //features
 //bugs
 //check for ignite status before every request
-//multirow breaks
-//rows remain but header and whatever gets changed, not cleaning the table
-//fix appearances of file button
+//loading indicator
