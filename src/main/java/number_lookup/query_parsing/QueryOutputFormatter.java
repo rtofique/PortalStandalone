@@ -59,8 +59,9 @@ public class QueryOutputFormatter {
       if(!Character.isDigit(query.charAt(i))) indices.append(i + ", ");
     }
 
-    if((query.length() == 7) && (!Character.isDigit(query.charAt(6)) && query.charAt(6) != 'A' || query.charAt(6) != 'a')) indices.append(6 +",");
-    return indices.toString().substring(0, indices.length() - 2);
+    if((query.length() >= 7) && (!Character.isDigit(query.charAt(6)) && (query.charAt(6) != 'A' || query.charAt(6) != 'a'))) indices.append(6 +",");
+    if(indices.length() == 0) return "";
+    return indices.toString().substring(0, indices.length() - 1);
   }
 
   @Bean

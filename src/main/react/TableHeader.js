@@ -6,7 +6,7 @@ import { INVALID_HEADERS, VALID_HEADERS } from './NumberLookupEnums';
 
 
 /**
- * Writes the headers for the results table. Initially, we had two separate headers for valid and invalid queries which explains the artifacts.
+ * Writes the headers for the results table. Invalid headers are shown if all the output is invalid otherwise the normal headers are shown.
  */
 
 export default class TableHeader extends React.Component {

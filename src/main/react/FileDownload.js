@@ -2,9 +2,13 @@ import React from "react";
 import {Button} from '@bandwidth/shared-components';
 import { VALID_HEADERS } from './NumberLookupEnums';
 
+/**
+ * Component to transform the output table into a csv file and and download it
+ */
 
 export default class FileDownload extends React.Component
 {
+
 
   createCSVTextFromJSON(outputJSON)
   {
@@ -17,7 +21,6 @@ export default class FileDownload extends React.Component
     let headersString = this.createLine(entriesArray);
     lines.push(headersString);
 
-    console.log(outputJSON);
 
     for (let id in outputJSON)
     {

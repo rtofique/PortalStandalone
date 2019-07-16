@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 /**
- * Form for inputting numbers that will be fed into the rest API for the number lookup feature
+ * Form for inputting numbers that are fed into the rest API
  */
 
 
@@ -36,21 +36,36 @@ export default class NumberForm extends React.Component {
 		this.submitTextBox = this.submitTextBox.bind(this);
 	}
 
+	/**
+	 * state is updated whenever a change is made in the text box
+	 * @param event
+	 */
 	handleChange(event)
 	{
 		this.setState({value : event.target.value});
 	}
 
+	/**
+	 * Translates list format to csv since the backend is only equipped to handle csv queries
+	 * @param text
+	 * @returns {*}
+	 */
 	prepareTextForQuery(text)
 	{
 		text = text.replace(/\n/g, ",");
 		return text;
 	}
 
+	/**
+	 * Sends the prepared output to the backend calls a parent function to send the response upwards
+	 * @param text the csv number query
+	 */
+
 	handleSubmit(text)
 	{
 		if(text.length == 0) return;
 		text = this.prepareTextForQuery(text);
+		this.props.toggleLoading(true);
 		fetch('http://localhost:8080/number/', {
 			method: 'POST',
 			headers : {
@@ -62,12 +77,17 @@ export default class NumberForm extends React.Component {
 		}).then(response => response.json())
 		.then(responseJSON => {
 			this.props.onRequestSubmission(responseJSON, new Date().toLocaleString());
+			this.props.toggleLoading(false);
+
 		});
 
 
 	}
 
-
+	/**
+	 * Reads the file and updates the component staet with the text
+	 * @param file 	the file uploaded by the user
+	 */
 	handleFileUpload(file)
 	{
 		if(file)
@@ -136,8 +156,3 @@ export default class NumberForm extends React.Component {
 
 }
 
-
-//features
-//bugs
-//check for ignite status before every request
-//loading indicator

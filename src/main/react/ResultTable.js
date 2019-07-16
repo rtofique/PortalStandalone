@@ -5,7 +5,10 @@ import TableHeader from './TableHeader';
 import FileDownload from "./FileDownload";
 import styled from 'styled-components';
 
-
+/**
+ * This component constructs the main body of the output by displaying the header, timestamp, and the table translated from the JSON output.
+ *
+ */
 
 function ValidTableRow(props)
 {
@@ -103,6 +106,3 @@ export default class ResultTable extends React.Component {
   }
 
 }
-
-//make validity for each record instead of one record
-//one ehader only
