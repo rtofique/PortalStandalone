@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class QueryInputFormatter {
 
-  private String BLOCK_REGEX = "\\d{6}(A|a)";
+  private String BLOCK_REGEX = "\\d{6}(A|a)?";
   public QueryInputFormatter(){}
 
   /**
