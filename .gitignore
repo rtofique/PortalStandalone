@@ -1,0 +1,6 @@
+**/target/
+**/node_modules
+*.jar
+*.war
+*.ear
+package-lock.json

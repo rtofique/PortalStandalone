@@ -9,7 +9,6 @@ import {Loader} from '@bandwidth/shared-components';
 export default class NumberLookupOutput extends React.Component
 {
 
-	//currently the loading bar does not appear the first time because props.output is blank
 	render()
 	{
 
@@ -17,7 +16,7 @@ export default class NumberLookupOutput extends React.Component
 		if(this.props.isLoading === true) {
 			display = <div style = {{display:'flex', justifyContent:'center', alignItems:'center', paddingTop:'50px'}}> <Loader size="30px"/> </div>
 		}
-		else {
+		else if(this.props.output != "" ) {
 			display = <ResultTable results = {this.props.output} timestamp = {this.props.timestamp}/>;
 		}
 
@@ -25,7 +24,7 @@ export default class NumberLookupOutput extends React.Component
 		return (
 
 				<div>
-					{this.props.output != "" &&
+					{
 						display
 					}
 				</div>
