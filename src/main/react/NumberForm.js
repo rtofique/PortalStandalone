@@ -143,7 +143,7 @@ export default class NumberForm extends React.Component {
 							} }> Clear </Button>
 						</form>
 					</PaddedForm>
-					<FileLoader value ={this.state.uploadedFile} onChange = {files => {
+					<FileLoader accept = ".csv, .doc, .txt, .docx" value ={this.state.uploadedFile} onChange = {files => {
 						this.setState({uploadedFile : files}, () => { this.handleFileUpload(this.state.uploadedFile[0])});
 					}}/>
 					<div>

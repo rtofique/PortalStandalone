@@ -43,25 +43,6 @@ public class QueryInputFormatter {
     else return query.replace('a', 'A').substring(0, 7);
   }
 
-  /**
-   * Iterates over all the queries and extracts those which are invalid
-   * @param queryList
-   * @return a list of invalid queries
-   */
-  /*public List<InvalidNumberRecord> findInvalidNumbers(List<String> queryList)
-  {
-    List<InvalidNumberRecord> invalidNumbers = new ArrayList<>();
-
-    for(int i = 0; i < queryList.size(); i++)
-    {
-      String query = queryList.get(i);
-      if(!isValidQuery(query))
-        invalidNumbers.add(new InvalidNumberRecord(query, i + 1 + "", generateErrorMessage(query)));
-
-    }
-
-    return invalidNumbers;
-  }*/
 
 
   /**

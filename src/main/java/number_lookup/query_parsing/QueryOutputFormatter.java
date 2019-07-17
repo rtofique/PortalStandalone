@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 //
 
 /**
- * This is a utility class that formats the outputs returned by the ignite database
+ * This is a utility class that formats all the output types returned by the ignite database
  *
  */
 
@@ -34,7 +34,6 @@ public class QueryOutputFormatter {
    */
   public QueryResultWrapper generateQueryResponse(List<? extends NumberRecord> records)
   {
-    //if all bad- do bad request- otherwise return 200
     String jsonRepresentation = responseBodyGenerator.generateResponseBody(records);
 
     if(!records.isEmpty() && records.get(0) instanceof InvalidNumberRecord) return new QueryResultWrapper(jsonRepresentation, HttpStatus.BAD_REQUEST);
@@ -42,6 +41,11 @@ public class QueryOutputFormatter {
 
   }
 
+  /**
+   * Generates the appropriate error message for a given invalid query
+   * @param query
+   * @return
+   */
   public String generateErrorMessage(String query)
   {
     StringBuilder message = new StringBuilder();
@@ -50,13 +54,14 @@ public class QueryOutputFormatter {
     return message.toString();
   }
 
+
   private String findInvalidCharacterIndexes(String query)
   {
     StringBuilder indices = new StringBuilder();
     for(int i = 0; i < Math.min(query.length(), 6); i++)
     {
 
-      if(!Character.isDigit(query.charAt(i))) indices.append(i + ", ");
+      if(!Character.isDigit(query.charAt(i))) indices.append(i + 1  + ", ");
     }
 
     if((query.length() >= 7) && (!Character.isDigit(query.charAt(6)) && (query.charAt(6) != 'A' || query.charAt(6) != 'a'))) indices.append(6 +",");

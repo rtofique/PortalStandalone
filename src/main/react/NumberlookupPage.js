@@ -2,12 +2,18 @@ import React from 'react';
 import NumberForm from "./NumberForm";
 import NumberLookupOutput from "./NumberLookupOutput";
 import {Navigation, Link, Note, BandwidthProvider, Spacing} from '@bandwidth/shared-components';
+import styled from "styled-components";
 
 /**
  * Main page for the complete app. Encapsulates both the forms and the output sections.
  */
 
+
+
 export default class NumberlookupPage extends React.Component{
+
+
+
 
 	constructor(props)
 	{
@@ -70,7 +76,6 @@ export default class NumberlookupPage extends React.Component{
 						<Spacing size = "md">
 							<NumberForm onRequestSubmission = {this.handleRequestSubmission} toggleLoading = {this.toggleLoadingStatus} />
 						</Spacing>
-
 
 						<Spacing size = "md">
 							<NumberLookupOutput output = {this.state.responseOutput} timestamp = {this.state.dateTime} isLoading = {this.state.isLoading} />

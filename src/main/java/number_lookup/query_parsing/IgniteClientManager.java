@@ -21,10 +21,6 @@ import org.springframework.context.annotation.Configuration;
 public class IgniteClientManager
 {
 
-  //currently a place holder value that will be configured to actually read from an application file
-  //query each address until you pass
-  //@value is not being initialized right now due to the constructor not completing
-
   @Value("${cache.addresses}")
   private String address;
 
@@ -33,7 +29,6 @@ public class IgniteClientManager
   private static Logger logger = LoggerFactory.getLogger(IgniteClientManager.class);
 
 
-  //do min work in constructor
   public IgniteClientManager()
   {}
 
@@ -46,7 +41,6 @@ public class IgniteClientManager
 
   public IgniteClient getClient()
   {
-    System.out.println("Ignite address: " + address + " ********************************");
     if(client == null)
     {
       setupClient();

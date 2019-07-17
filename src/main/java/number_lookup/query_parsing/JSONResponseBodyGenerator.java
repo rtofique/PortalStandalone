@@ -8,6 +8,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import number_lookup.number_records.RateCenterMixin;
 
+/**
+Translates the database result into a JSON response
+ */
+
 public class JSONResponseBodyGenerator implements ResponseBodyGenerator {
 
   final private ObjectMapper mapper;
@@ -23,7 +27,6 @@ public class JSONResponseBodyGenerator implements ResponseBodyGenerator {
 
       mapper.setSerializationInclusion(Include.NON_NULL);
 
-      //we get a single serialized string here of the body
       String recordsJson;
       try
       {
