@@ -22,6 +22,10 @@ export default class NumberLookupOutput extends React.Component
 		if(this.props.isLoading === true) {
 			display = <div style = {{display:'flex', justifyContent:'center', alignItems:'center', paddingTop:'50px'}}> <Loader size="30px"/> </div>
 		}
+		else if(this.props.output === "500")
+		{
+			display = <h1>500 Internal Server Error. Service is unavailable.</h1>
+		}
 		else if(this.props.output != "" ) {
 			display = <OutlinePane><ResultTable results = {this.props.output} timestamp = {this.props.timestamp}/></OutlinePane>;
 		}

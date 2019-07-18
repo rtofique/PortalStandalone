@@ -14,11 +14,11 @@ Translates the database result into a JSON response
 
 public class JSONResponseBodyGenerator implements ResponseBodyGenerator {
 
-  final private ObjectMapper mapper;
+  static final private ObjectMapper mapper = new ObjectMapper();
 
   public JSONResponseBodyGenerator()
   {
-    this.mapper = new ObjectMapper();
+
   }
 
 

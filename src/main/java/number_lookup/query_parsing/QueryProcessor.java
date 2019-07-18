@@ -1,5 +1,6 @@
 package number_lookup.query_parsing;
 
+import java.net.SocketException;
 import java.util.NoSuchElementException;
 import number_lookup.number_records.NumberRecord;
 import org.slf4j.Logger;
@@ -19,6 +20,7 @@ import org.apache.ignite.cache.query.ScanQuery;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.apache.ignite.internal.client.thin.ClientServerError;
+import org.springframework.http.HttpStatus;
 
 /**
  * This class implements all the functions that query the ignite database
@@ -78,7 +80,7 @@ public class QueryProcessor {
    * @return This returns a ValidNumberRecord which has all the data about the rate centers or null data for unresolved queries
    * @throws InvalidInputException
    */
-  private NumberRecord queryNumber(String query, int id)
+  private NumberRecord queryNumber(String query, int id) throws SocketException
   {
 
     if(!queryInputFormatter.isValidQuery(query))
@@ -89,13 +91,13 @@ public class QueryProcessor {
     String formattedQuery = queryInputFormatter.formatQuery(query);
     TreeSet<RateCenter> result = findIgniteRecord((formattedQuery));
 
-    if(result == null && !queryInputFormatter.isBlockQuery(formattedQuery))
+    if(result.size() == 0 && !queryInputFormatter.isBlockQuery(formattedQuery))
     {
       formattedQuery = queryInputFormatter.formatQuery(formattedQuery.substring(0, 6));
       result = findIgniteRecord((formattedQuery));
     }
 
-    if(result == null) return new ValidNumberRecord(id + "", formattedQuery);
+    if(result.size() == 0) return new ValidNumberRecord(id + "", formattedQuery);
 
 
     return new ValidNumberRecord(id + "", formattedQuery, result);
@@ -115,27 +117,22 @@ public class QueryProcessor {
 
     List<String> queries = queryInputFormatter.prepareQueries(userQuery);
 
-    /*
-    List<InvalidNumberRecord> invalidNumbers =  queryInputFormatter.findInvalidNumbers(queries);
-
-    //if(!invalidNumbers.isEmpty()) return queryOutputFormatter.generateQueryResponse(invalidNumbers);
-
-    List<ValidNumberRecord> outputRecords =  queries
-        .stream()
-        .map(this::queryNumber)
-        .collect(Collectors.toList());
-
-    //weave them together
-
-    return queryOutputFormatter.generateQueryResponse(outputRecords);*/
 
     List<NumberRecord> outputRecords = new ArrayList<>();
-    for(int i = 0; i < queries.size(); i++)
+
+    try
     {
-      outputRecords.add(queryNumber(queries.get(i), i + 1));
+      for(int i = 0; i < queries.size(); i++)
+      {
+        outputRecords.add(queryNumber(queries.get(i), i + 1));
+      }
+      return queryOutputFormatter.generateQueryResponse(outputRecords);
+
+    } catch (SocketException e)
+    {
+      return new QueryResultWrapper("", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    return queryOutputFormatter.generateQueryResponse(outputRecords);
   }
 
 
@@ -145,7 +142,7 @@ public class QueryProcessor {
    * @param formattedQuery
    * @return A TreeSet of RateCenter objects which can be iterated over. Or a null if the record was not found.
    */
-  private TreeSet<RateCenter> findIgniteRecord(String formattedQuery)
+  private TreeSet<RateCenter> findIgniteRecord(String formattedQuery) throws SocketException
   {
 
     logger.info("Cache Name: " + CACHE_NAME + " **********************");
@@ -157,8 +154,11 @@ public class QueryProcessor {
     }
     catch(ClientServerError  e)
     {
-      e.printStackTrace();
-      result = null;
+      //this should send a 500 back if cache does not exist but I need to check what error I get when cache does exist
+      //normal instruction flow?
+      //valid application logic- problem in the context of ignite and not in this context
+      //e.printStackTrace();
+      result = new TreeSet<RateCenter>();
     }
 
     return result;

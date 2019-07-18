@@ -74,11 +74,18 @@ export default class NumberForm extends React.Component {
 				'X-HTTP-Method-Override': 'GET',
 			},
 		body: text,
-		}).then(response => response.json())
+		}).then(response => {
+			let responseJSON = response.json();
+			if(response.status === 500) throw new Error(response.status);
+			return responseJSON;
+		})
 		.then(responseJSON => {
 			this.props.onRequestSubmission(responseJSON, new Date().toLocaleString());
 			this.props.toggleLoading(false);
-
+		})
+		.catch((error) => {
+			this.props.onRequestSubmission("500", new Date().toLocaleString());
+			this.props.toggleLoading(false);
 		});
 
 
@@ -88,21 +95,37 @@ export default class NumberForm extends React.Component {
 	 * Reads the file and updates the component staet with the text
 	 * @param file 	the file uploaded by the user
 	 */
-	handleFileUpload(file)
+	handleFileUpload(files)
 	{
-		if(file)
+
+		if(files)
 		{
-			let reader = new FileReader();
-			let text = "";
-			reader.onload = () =>
-			{
-				text = reader.result;
-				if(text != "")
-				{
-					this.setState({fileText : text});
-				}
-			}
-			reader.readAsText(file, "UTF-*");
+			let fullText = "";
+			let fileCounter = files.length;
+
+			Object.keys(files).forEach(i => {
+				let file = files[i];
+				let text = "";
+				let reader = new FileReader();
+
+				reader.onload = () =>
+					{
+						text = reader.result;
+						if(text != "")
+						{
+							text += (text[text.length - 1] !=="\n") ? "\n" : "";
+							fileCounter--;
+							fullText += text;
+							if(fileCounter ===0) {
+								this.setState({fileText:fullText})}
+							;
+
+						}
+					}
+					reader.readAsText(file, "UTF-*");
+			})
+
+
 
 		}
 	}
@@ -144,8 +167,8 @@ export default class NumberForm extends React.Component {
 						</form>
 					</PaddedForm>
 					<FileLoader accept = ".csv, .doc, .txt, .docx" value ={this.state.uploadedFile} onChange = {files => {
-						this.setState({uploadedFile : files}, () => { this.handleFileUpload(this.state.uploadedFile[0])});
-					}}/>
+						this.setState({uploadedFile : files}, () => { this.handleFileUpload(this.state.uploadedFile)});
+					}} multiple/>
 					<div>
 						<Button style = {{"marginTop": 15}} type="button" onClick = { () => { this.submitFile()}}> Submit File </Button>
 					</div>

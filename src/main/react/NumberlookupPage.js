@@ -12,7 +12,7 @@ import styled from "styled-components";
 
 export default class NumberlookupPage extends React.Component{
 
-
+	//pass the input or output to the whole page??
 
 
 	constructor(props)

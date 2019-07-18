@@ -45,6 +45,7 @@ public class IgniteClientManager
     {
       setupClient();
     }
+
     return client;
   }
 

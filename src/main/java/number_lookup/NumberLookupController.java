@@ -36,9 +36,16 @@ public class NumberLookupController {
 
     @ApiOperation(value = "Get all the data stored in Bandwidth's database for this number")
     @PostMapping(path="/number", headers = {"X-HTTP-Method-Override=GET"})
-    public ResponseEntity<String> getQuery(@RequestBody String userNumberQuery)
+    public ResponseEntity<String> postNumberQuery(@RequestBody String userNumberQuery)
     {
         QueryResultWrapper wrapper = queryProcessor.queryInput(userNumberQuery);
+        return new ResponseEntity<>(wrapper.getResultBody(), wrapper.getHttpResponse());
+    }
+
+    @GetMapping(path="/number")
+    public ResponseEntity<String> getNumberQuery(@RequestParam String phoneNumbers)
+    {
+        QueryResultWrapper wrapper = queryProcessor.queryInput(phoneNumbers);
         return new ResponseEntity<>(wrapper.getResultBody(), wrapper.getHttpResponse());
     }
 
