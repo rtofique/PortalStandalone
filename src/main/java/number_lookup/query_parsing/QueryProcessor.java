@@ -3,6 +3,8 @@ package number_lookup.query_parsing;
 import java.net.SocketException;
 import java.util.NoSuchElementException;
 import number_lookup.number_records.NumberRecord;
+import org.apache.ignite.IgniteCache;
+import org.apache.ignite.client.ClientCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -80,7 +82,7 @@ public class QueryProcessor {
    * @return This returns a ValidNumberRecord which has all the data about the rate centers or null data for unresolved queries
    * @throws InvalidInputException
    */
-  private NumberRecord queryNumber(String query, int id) throws SocketException
+  private NumberRecord queryNumber(String query, int id) throws SocketException, ClientServerError
   {
 
     if(!queryInputFormatter.isValidQuery(query))
@@ -128,8 +130,10 @@ public class QueryProcessor {
       }
       return queryOutputFormatter.generateQueryResponse(outputRecords);
 
-    } catch (SocketException e)
+    }
+    catch (ClientServerError | SocketException e)
     {
+      e.printStackTrace();
       return new QueryResultWrapper("", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -142,24 +146,12 @@ public class QueryProcessor {
    * @param formattedQuery
    * @return A TreeSet of RateCenter objects which can be iterated over. Or a null if the record was not found.
    */
-  private TreeSet<RateCenter> findIgniteRecord(String formattedQuery) throws SocketException
+  private TreeSet<RateCenter> findIgniteRecord(String formattedQuery) throws SocketException, ClientServerError
   {
 
-    logger.info("Cache Name: " + CACHE_NAME + " **********************");
-    TreeSet<RateCenter> result;
+    TreeSet<RateCenter> result = (TreeSet<RateCenter>)igniteClientManager.getClient().cache(CACHE_NAME).get(formattedQuery);
+    if(result == null) return new TreeSet<>();
 
-    try
-    {
-      result = (TreeSet<RateCenter>)igniteClientManager.getClient().cache(CACHE_NAME).get(formattedQuery);
-    }
-    catch(ClientServerError  e)
-    {
-      //this should send a 500 back if cache does not exist but I need to check what error I get when cache does exist
-      //normal instruction flow?
-      //valid application logic- problem in the context of ignite and not in this context
-      //e.printStackTrace();
-      result = new TreeSet<RateCenter>();
-    }
 
     return result;
   }
