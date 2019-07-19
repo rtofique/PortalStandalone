@@ -1,6 +1,8 @@
 package number_lookup.query_parsing;
 
+import java.util.List;
 import org.apache.ignite.Ignition;
+import org.apache.ignite.client.ClientException;
 import org.apache.ignite.client.IgniteClient;
 import org.apache.ignite.configuration.ClientConfiguration;
 
@@ -21,8 +23,8 @@ import org.springframework.context.annotation.Configuration;
 public class IgniteClientManager
 {
 
-  @Value("${cache.addresses}")
-  private String address;
+  @Value("#{'${cache.addresses}'.split(',')}")
+  private List<String> addresses;
 
   private IgniteClient client = null;
 
@@ -34,7 +36,8 @@ public class IgniteClientManager
 
   private void setupClient()
   {
-    final ClientConfiguration clientCfg = new ClientConfiguration().setAddresses(address);
+    final ClientConfiguration clientCfg = new ClientConfiguration().setAddresses(addresses.toArray(new String[addresses.size()]));
+
     client = Ignition.startClient(clientCfg);
 
   }

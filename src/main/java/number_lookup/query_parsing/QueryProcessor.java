@@ -2,6 +2,7 @@ package number_lookup.query_parsing;
 
 import java.net.SocketException;
 import java.util.NoSuchElementException;
+import javax.validation.constraints.Null;
 import number_lookup.number_records.NumberRecord;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.client.ClientCache;
@@ -55,15 +56,15 @@ public class QueryProcessor {
    * For debugging purposes, returns all keys in the cache
    * @return
    */
-  private void printAllKeys()
+  private void printAllKeys(String cache)
   {
     List<String> keys = new ArrayList<>();
     try
     {
-      igniteClientManager.getClient().cache(CACHE_NAME).query(new ScanQuery<>(null)).forEach(entry -> keys.add((String) entry.getKey()));
+      igniteClientManager.getClient().cache(cache).query(new ScanQuery<>(null)).forEach(entry -> keys.add((String) entry.getKey()));
     }
     catch (NoSuchElementException  e) {
-      e.printStackTrace();
+      logger.error("Cache is empty", e);
     }
 
     for(final String key : keys)
@@ -71,6 +72,14 @@ public class QueryProcessor {
       logger.info(key);
     }
 
+  }
+
+  private void printCacheNames()
+  {
+    for(String cache : igniteClientManager.getClient().cacheNames())
+    {
+      logger.info(cache);
+    }
   }
 
   /**
@@ -133,7 +142,7 @@ public class QueryProcessor {
     }
     catch (ClientServerError | SocketException e)
     {
-      e.printStackTrace();
+      //e.printStackTrace();
       return new QueryResultWrapper("", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -149,9 +158,17 @@ public class QueryProcessor {
   private TreeSet<RateCenter> findIgniteRecord(String formattedQuery) throws SocketException, ClientServerError
   {
 
-    TreeSet<RateCenter> result = (TreeSet<RateCenter>)igniteClientManager.getClient().cache(CACHE_NAME).get(formattedQuery);
-    if(result == null) return new TreeSet<>();
+    //on a failed lookup, it should simply return a null but for some reason it sends a ClientServerError sometimes
+    //sometimes the query never returns
 
+    //logger.info(CACHE_NAME);
+    //printCacheNames();
+    //printAllKeys(CACHE_NAME);
+
+
+    TreeSet<RateCenter> result = (TreeSet<RateCenter>)igniteClientManager.getClient().cache(CACHE_NAME).get(formattedQuery);
+
+    if(result==null) return new TreeSet<>();
 
     return result;
   }

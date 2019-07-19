@@ -1,18 +1,21 @@
 import React from 'react';
 import NumberForm from "./NumberForm";
 import NumberLookupOutput from "./NumberLookupOutput";
-import {Navigation, Link, Note, BandwidthProvider, Spacing} from '@bandwidth/shared-components';
+import {Navigation, Link, Note, BandwidthProvider} from '@bandwidth/shared-components';
 import styled from "styled-components";
 
 /**
  * Main page for the complete app. Encapsulates both the forms and the output sections.
  */
 
+const SpacedDiv = styled.div`
+		margin-top:25px;
+		margin-left:10px;
+	
+`;
 
 
 export default class NumberlookupPage extends React.Component{
-
-	//pass the input or output to the whole page??
 
 
 	constructor(props)
@@ -65,21 +68,13 @@ export default class NumberlookupPage extends React.Component{
 				<BandwidthProvider>
 					<div>
 						<NavBar />
-						<Spacing size = "md">
+						<SpacedDiv>
 							<h1>Number Lookup</h1>
-						</Spacing>
-						<Spacing size = "md">
 							<Note>This tools returns all the records associated with an NPA-NXX-Block number in the Bandwidth databases. You can enter multiple values separated by a comma, or upload a csv file.
-								If a phone number is not found, it will default to searching for that number's NPA-NXX value with an 'A' block number.</Note>
-						</Spacing>
-
-						<Spacing size = "md">
-							<NumberForm onRequestSubmission = {this.handleRequestSubmission} toggleLoading = {this.toggleLoadingStatus} />
-						</Spacing>
-
-						<Spacing size = "md">
-							<NumberLookupOutput output = {this.state.responseOutput} timestamp = {this.state.dateTime} isLoading = {this.state.isLoading} />
-						</Spacing>
+							If a phone number is not found, it will default to searching for that number's NPA-NXX value with an 'A' block number.</Note>
+						</SpacedDiv>
+						<SpacedDiv><NumberForm onRequestSubmission = {this.handleRequestSubmission} toggleLoading = {this.toggleLoadingStatus} /></SpacedDiv>
+						<SpacedDiv><NumberLookupOutput output = {this.state.responseOutput} timestamp = {this.state.dateTime} isLoading = {this.state.isLoading} /></SpacedDiv>
 
 					</div>
 				</BandwidthProvider>

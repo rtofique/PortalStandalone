@@ -23,15 +23,24 @@ function ValidTableRow(props)
     (<Table.Cell key = {"2"}>{npanxx}</Table.Cell>),
     (<Table.Cell key = {"3"}>{blockNumber}</Table.Cell>),
     (<Table.Cell key = {"4"}>{json.recordFound.toString()}</Table.Cell>),
-    (<Table.Cell key = {"5"}>{rateCenter.lata}</Table.Cell>),
-    (<Table.Cell key = {"6"}>{rateCenter.ocn}</Table.Cell>),
-    (<Table.Cell key = {"7"}>{rateCenter.aocn}</Table.Cell>),
-    (<Table.Cell key = {"8"}>{rateCenter.rateCenter}</Table.Cell>),
-    (<Table.Cell key = {"9"}>{rateCenter.state}</Table.Cell>),
-    (<Table.Cell key = {"10"}>{rateCenter.ocnOverall}</Table.Cell>),
-    (<Table.Cell key = {"11"}>{date.year + "-" + date.monthValue + "-" + date.dayOfMonth}</Table.Cell>)
+    (<Table.Cell key = {"5"}>{resolveField(rateCenter, 'lata')}</Table.Cell>),
+    (<Table.Cell key = {"6"}>{resolveField(rateCenter, 'ocn')}</Table.Cell>),
+    (<Table.Cell key = {"7"}>{resolveField(rateCenter, 'aocn')}</Table.Cell>),
+    (<Table.Cell key = {"8"}>{resolveField(rateCenter, 'rateCenter')}</Table.Cell>),
+    (<Table.Cell key = {"9"}>{resolveField(rateCenter, 'state')}</Table.Cell>),
+    (<Table.Cell key = {"10"}>{resolveField(rateCenter, 'ocnOverall')}</Table.Cell>),
+    (<Table.Cell key = {"11"}>{resolveField(date, 'year') + "-" + resolveField(date,'monthValue') + "-" + resolveField(date,'dayOfMonth')}</Table.Cell>)
 
   ]
+}
+
+function resolveField(parentField, childField)
+{
+  if(parentField)
+  {
+    return (parentField[childField]) ? parentField[childField] : "N/A";
+  }
+  return "N/A";
 }
 
 function InvalidTableRow(props)
