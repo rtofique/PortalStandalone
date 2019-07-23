@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Table} from '@bandwidth/shared-components';
+import {Button, Table} from '@bandwidth/shared-components';
+import ShareableLink from './ShareableLink'
 import { validity } from './NumberLookupEnums';
 import TableHeader from './TableHeader';
 import FileDownload from "./FileDownload";
@@ -47,14 +48,15 @@ function InvalidTableRow(props)
 {
   return [
     (<Table.Cell key = {"1"}>{props.json.query}</Table.Cell>),
-    (<Table.Cell key = {"3"} style = {{color:"#ff391a"}}>{props.json.status} </Table.Cell>)
+    (<Table.Cell key = {"2"} style = {{color:"#ff391a"}}>{props.json.status} </Table.Cell>)
+
   ]
 }
 
 const HeadingDiv = styled.div`
   display:flex;
   flex-direction:row;
-  justify-content : space-between;
+  justify-content:space-between;
 `;
 
 
@@ -88,10 +90,12 @@ export default class ResultTable extends React.Component {
 
 
       <div>
-        <h1 style={{color:"#00aaa6c"}}>{"Query results:"} </h1>
+        <br/>
+        <h1 style={{color:"#60545b"}}>{"Query Results"} </h1>
         <HeadingDiv>
-          <h3>{this.props.timestamp}</h3>
+          <h3 style={{color:"#60545b"}}>{this.props.timestamp}</h3>
           <FileDownload jsonText = {this.props.results} timestamp = {this.props.timestamp} />
+          <ShareableLink queryString = {this.props.queryString}/>
         </HeadingDiv>
         <Table
             headers = {

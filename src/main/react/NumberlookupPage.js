@@ -1,16 +1,21 @@
 import React from 'react';
 import NumberForm from "./NumberForm";
 import NumberLookupOutput from "./NumberLookupOutput";
-import {Navigation, Link, Note, BandwidthProvider} from '@bandwidth/shared-components';
+import {Navigation, Link, HelpText, BandwidthProvider} from '@bandwidth/shared-components';
 import styled from "styled-components";
+//import { createBrowserHistory } from "history";
+//import {withRouter} from "react-router-dom";
 
 /**
  * Main page for the complete app. Encapsulates both the forms and the output sections.
  */
 
+//const history = createBrowserHistory();
+
 const SpacedDiv = styled.div`
-		margin-top:25px;
-		margin-left:10px;
+		margin-top:3%;
+		margin-left:3%;
+		margin-right:3%;
 	
 `;
 
@@ -23,7 +28,7 @@ export default class NumberlookupPage extends React.Component{
 		super(props);
 		this.handleRequestSubmission = this.handleRequestSubmission.bind(this);
 		this.toggleLoadingStatus = this.toggleLoadingStatus.bind(this);
-		this.state = {responseOutput : '', inputSubmitted: false, isLoading: false, dateTime:''};
+		this.state = {responseOutput : '', inputSubmitted: false, isLoading: false, dateTime:'', queryString:''};
 	}
 
 	/**
@@ -32,9 +37,9 @@ export default class NumberlookupPage extends React.Component{
 	 * @param timestamp the time at which the query was made
 	 * Called by the NumberForm child to let the parent know of the response and timestamp so it can relay it to the output components.
 	 */
-	handleRequestSubmission(response, timestamp)
+	handleRequestSubmission(response, timestamp, userInput)
 	{
-		this.setState({responseOutput : response, inputSubmitted: true, dateTime:timestamp});
+		this.setState({responseOutput : response, inputSubmitted: true, dateTime:timestamp, queryString:userInput});
 	}
 
 	/**
@@ -63,21 +68,22 @@ export default class NumberlookupPage extends React.Component{
 				</Navigation>
 		);
 
+		//this.state.queryString now has the proper input
 
 		return (
 				<BandwidthProvider>
 					<div>
 						<NavBar />
 						<SpacedDiv>
-							<h1>Number Lookup</h1>
-							<Note>This tools returns all the records associated with an NPA-NXX-Block number in the Bandwidth databases. You can enter multiple values separated by a comma, or upload a csv file.
-							If a phone number is not found, it will default to searching for that number's NPA-NXX value with an 'A' block number.</Note>
-						</SpacedDiv>
-						<SpacedDiv><NumberForm onRequestSubmission = {this.handleRequestSubmission} toggleLoading = {this.toggleLoadingStatus} /></SpacedDiv>
-						<SpacedDiv><NumberLookupOutput output = {this.state.responseOutput} timestamp = {this.state.dateTime} isLoading = {this.state.isLoading} /></SpacedDiv>
+							<h1 style={{color:'#60545b'}}>Rate Center Lookup</h1>
+							<HelpText>This tools returns all the records associated with an NPA-NXX-Block number in the Bandwidth databases. You can enter multiple values separated by a comma, or upload a csv file.
+							If a phone number is not found, it will default to searching for that number's NPA-NXX value with an 'A' block number.</HelpText>
+						<NumberForm onRequestSubmission = {this.handleRequestSubmission} toggleLoading = {this.toggleLoadingStatus} />
+						<NumberLookupOutput output = {this.state.responseOutput} timestamp = {this.state.dateTime} isLoading = {this.state.isLoading} queryString = {this.state.queryString} /></SpacedDiv>
 
 					</div>
 				</BandwidthProvider>
 		);
 	}
 }
+

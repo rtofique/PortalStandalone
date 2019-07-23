@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {TextArea, Button, FileLoader} from '@bandwidth/shared-components';
 import styled from 'styled-components';
+import InputTabs from './InputTabs';
+import {Tab} from '@bandwidth/shared-components';
 
 
 /**
@@ -13,10 +15,6 @@ const Label = styled.label`
 	display:block;
 `;
 
-const PaddedForm = styled.div`
-	margin-top:15px;
-	display:block;
-`;
 
 const inputHelpText = "Please enter the numbers in a list format with each number on a new line or in a csv format...";
 
@@ -80,11 +78,11 @@ export default class NumberForm extends React.Component {
 			return responseJSON;
 		})
 		.then(responseJSON => {
-			this.props.onRequestSubmission(responseJSON, new Date().toLocaleString());
+			this.props.onRequestSubmission(responseJSON, new Date().toLocaleString(), text);
 			this.props.toggleLoading(false);
 		})
 		.catch((error) => {
-			this.props.onRequestSubmission("500", new Date().toLocaleString());
+			this.props.onRequestSubmission("500", new Date().toLocaleString(), text);
 			this.props.toggleLoading(false);
 		});
 
@@ -148,31 +146,32 @@ export default class NumberForm extends React.Component {
 	render()
 	{
 
+		let paddedForm =
+			<form  onSubmit= {this.submitTextBox}>
+				<Label htmlFor="numberfield">
+					Phone Numbers:
+					<TextArea id ="numberfield" type="text" placeholder={this.state.placeholder} onChange={this.handleChange} ref={this.textAreaRef}/>
+				</Label>
+				<Button type="submit" value="Submit">
+					Submit
+				</Button>
+				<Button style = {{"marginLeft":5}} type={"button"} onClick = {() => {
+					this.textAreaRef.current.value = '';
+					this.setState({value: ''});
+				} }> Clear </Button>
+			</form>
+
+
+		let fileLoader = 	<div>
+			<FileLoader accept = ".csv, .doc, .txt, .docx" value ={this.state.uploadedFile} onChange = {files => {
+				this.setState({uploadedFile : files}, () => { this.handleFileUpload(this.state.uploadedFile)});
+			}} multiple/>
+			<Button style = {{"marginTop": 15}} type="button" onClick = { () => { this.submitFile()}}> Submit File </Button>
+		</div>
 
 		return (
-				<div>
-					<PaddedForm>
-						<form  onSubmit= {this.submitTextBox}>
-							<Label htmlFor="numberfield">
-								Phone Numbers:
-								<TextArea id ="numberfield" type="text" placeholder={this.state.placeholder} onChange={this.handleChange} ref={this.textAreaRef}/>
-							</Label>
-							<Button type="submit" value="Submit">
-									Submit
-							</Button>
-							<Button style = {{"marginLeft":5}} type={"button"} onClick = {() => {
-								this.textAreaRef.current.value = '';
-								this.setState({value: ''});
-							} }> Clear </Button>
-						</form>
-					</PaddedForm>
-					<FileLoader accept = ".csv, .doc, .txt, .docx" value ={this.state.uploadedFile} onChange = {files => {
-						this.setState({uploadedFile : files}, () => { this.handleFileUpload(this.state.uploadedFile)});
-					}} multiple/>
-					<div>
-						<Button style = {{"marginTop": 15}} type="button" onClick = { () => { this.submitFile()}}> Submit File </Button>
-					</div>
-
+				<div style={{"marginTop":"50"}}>
+					<InputTabs Group = {Tab.Group} Container = {Tab.Container} Tab={Tab} contents = {[paddedForm,fileLoader]} />
 				</div>
 		);
 	}

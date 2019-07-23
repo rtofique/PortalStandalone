@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ResultTable from "./ResultTable";
-import {Loader} from '@bandwidth/shared-components';
+import {Loader, Button} from '@bandwidth/shared-components';
 import styled from "styled-components";
 
 /**
@@ -27,7 +27,9 @@ export default class NumberLookupOutput extends React.Component
 			display = <h1>500 Internal Server Error. Service is unavailable.</h1>
 		}
 		else if(this.props.output != "" ) {
-			display = <OutlinePane><ResultTable results = {this.props.output} timestamp = {this.props.timestamp}/></OutlinePane>;
+			display = <div>
+				<ResultTable queryString = {this.props.queryString} results = {this.props.output} timestamp = {this.props.timestamp}/>
+			</div>;
 		}
 
 
