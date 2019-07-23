@@ -3,6 +3,7 @@ import {TextArea, Button, FileLoader} from '@bandwidth/shared-components';
 import styled from 'styled-components';
 import InputTabs from './InputTabs';
 import {Tab} from '@bandwidth/shared-components';
+import {withRouter} from "react-router-dom";
 
 
 /**
@@ -18,7 +19,7 @@ const Label = styled.label`
 
 const inputHelpText = "Please enter the numbers in a list format with each number on a new line or in a csv format...";
 
-export default class NumberForm extends React.Component {
+class NumberForm extends React.Component {
 
 	constructor(props)
 	{
@@ -33,6 +34,28 @@ export default class NumberForm extends React.Component {
 		this.submitFile = this.submitFile.bind(this);
 		this.submitTextBox = this.submitTextBox.bind(this);
 	}
+
+
+	componentDidMount() {
+
+		const location = this.props.history.location;
+		if(location.pathname == "/") return;
+
+		this.handleSharedLink(location.search);
+
+	}
+
+	/**
+	 * Parse the shared link and query
+	 * @param url
+	 */
+	handleSharedLink(search)
+	{
+		const query = search.split('=');
+		if(query[0] !== '?phoneNumbers') return;
+		this.handleSubmit(query[1]);
+	}
+
 
 	/**
 	 * state is updated whenever a change is made in the text box
@@ -175,6 +198,7 @@ export default class NumberForm extends React.Component {
 				</div>
 		);
 	}
-
 }
+
+export default withRouter(NumberForm)
 

@@ -10,4 +10,9 @@ public class ReactController {
   public String index() {
     return "index";
   }
+
+  @RequestMapping("/ratecenterlookup/{path:[^\\.]+}/**")
+  public String forward() {
+    return "index";
+  }
 }

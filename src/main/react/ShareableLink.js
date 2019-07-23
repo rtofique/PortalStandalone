@@ -13,7 +13,7 @@ export default class ShareableLink extends React.Component
   {
     //this gives us domain+port or anything before query
     let urlBase  = window.location.href.split('/')[2];
-    const queryStart = "/number?phoneNumbers="
+    const queryStart = "/ratecenterlookup/number?phoneNumbers="
 
     //now need to make sure that the input is restricted to 2000 characters for the get request
 

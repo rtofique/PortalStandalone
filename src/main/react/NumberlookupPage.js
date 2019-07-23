@@ -3,14 +3,12 @@ import NumberForm from "./NumberForm";
 import NumberLookupOutput from "./NumberLookupOutput";
 import {Navigation, Link, HelpText, BandwidthProvider} from '@bandwidth/shared-components';
 import styled from "styled-components";
-//import { createBrowserHistory } from "history";
-//import {withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 /**
  * Main page for the complete app. Encapsulates both the forms and the output sections.
  */
 
-//const history = createBrowserHistory();
 
 const SpacedDiv = styled.div`
 		margin-top:3%;
@@ -20,7 +18,10 @@ const SpacedDiv = styled.div`
 `;
 
 
-export default class NumberlookupPage extends React.Component{
+//everything sbould go to react- which will then reformulate the query and that is also going to be the URL I generate
+//now in component did mount- parse URL-if query is empty then do nothing, else send the string to output
+
+class NumberlookupPage extends React.Component{
 
 
 	constructor(props)
@@ -54,11 +55,8 @@ export default class NumberlookupPage extends React.Component{
 	}
 
 
-
-
 	render()
 	{
-
 
 		const NavBar = () => (
 				<Navigation>
@@ -68,22 +66,21 @@ export default class NumberlookupPage extends React.Component{
 				</Navigation>
 		);
 
-		//this.state.queryString now has the proper input
-
 		return (
-				<BandwidthProvider>
-					<div>
-						<NavBar />
-						<SpacedDiv>
-							<h1 style={{color:'#60545b'}}>Rate Center Lookup</h1>
-							<HelpText>This tools returns all the records associated with an NPA-NXX-Block number in the Bandwidth databases. You can enter multiple values separated by a comma, or upload a csv file.
-							If a phone number is not found, it will default to searching for that number's NPA-NXX value with an 'A' block number.</HelpText>
-						<NumberForm onRequestSubmission = {this.handleRequestSubmission} toggleLoading = {this.toggleLoadingStatus} />
-						<NumberLookupOutput output = {this.state.responseOutput} timestamp = {this.state.dateTime} isLoading = {this.state.isLoading} queryString = {this.state.queryString} /></SpacedDiv>
+					<BandwidthProvider>
+						<div>
+							<NavBar />
+							<SpacedDiv>
+								<h1 style={{color:'#60545b'}}>Rate Center Lookup</h1>
+								<HelpText>This tools returns all the records associated with an NPA-NXX-Block number in the Bandwidth databases. You can enter multiple values separated by a comma, or upload a csv file.
+								If a phone number is not found, it will default to searching for that number's NPA-NXX value with an 'A' block number.</HelpText>
+							<NumberForm onRequestSubmission = {this.handleRequestSubmission} toggleLoading = {this.toggleLoadingStatus} />
+							<NumberLookupOutput output = {this.state.responseOutput} timestamp = {this.state.dateTime} isLoading = {this.state.isLoading} queryString = {this.state.queryString} /></SpacedDiv>
 
-					</div>
-				</BandwidthProvider>
+						</div>
+					</BandwidthProvider>
 		);
 	}
 }
 
+export default withRouter(NumberlookupPage);
