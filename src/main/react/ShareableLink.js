@@ -85,7 +85,7 @@ export default class ShareableLink extends React.Component
     {
       alert = <React.Fragment>
         <Alert.Group.Global>
-          <Alert onClose={() => {this.setState({showAlert:false})}} type="success" closeTimeout={2000}> Link copied to clipboard successfully! </Alert>
+          <Alert onClose={() => {this.setState({showAlert:false})}} type="success" closeTimeout={200000}> Link copied to clipboard successfully! </Alert>
         </Alert.Group.Global>
       </React.Fragment>
     }
