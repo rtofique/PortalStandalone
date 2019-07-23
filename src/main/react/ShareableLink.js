@@ -1,7 +1,7 @@
 import React from "react";
 
 import {Button, Callout, Alert} from '@bandwidth/shared-components';
-
+import '@bandwidth/shared-components/fonts/fonts.css';
 
 
 export default class ShareableLink extends React.Component
