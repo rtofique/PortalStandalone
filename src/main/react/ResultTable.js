@@ -56,7 +56,11 @@ function InvalidTableRow(props)
 const HeadingDiv = styled.div`
   display:flex;
   flex-direction:row;
-  justify-content:space-between;
+  justify-content: flex-start;
+  & > * {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 `;
 
 
@@ -93,9 +97,9 @@ export default class ResultTable extends React.Component {
         <br/>
         <h1 style={{color:"#60545b"}}>{"Query Results"} </h1>
         <HeadingDiv>
-          <h3 style={{color:"#60545b"}}>{this.props.timestamp}</h3>
-          <FileDownload jsonText = {this.props.results} timestamp = {this.props.timestamp} />
+          <h3 style={{marginRight:'auto', color:"#60545b"}}>{this.props.timestamp}</h3>
           <ShareableLink queryString = {this.props.queryString}/>
+          <FileDownload jsonText = {this.props.results} timestamp = {this.props.timestamp} />
         </HeadingDiv>
         <Table
             headers = {

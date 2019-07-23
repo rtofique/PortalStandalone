@@ -1,10 +1,17 @@
 import React from "react";
 
-import {Button} from '@bandwidth/shared-components';
+import {Button, Callout, Alert} from '@bandwidth/shared-components';
+
 
 
 export default class ShareableLink extends React.Component
 {
+
+  constructor(props)
+  {
+    super(props);
+    this.state = {shareableQueries:0, showAlert:false};
+  }
 
   /**
    * Generates the shareable URL
@@ -19,8 +26,9 @@ export default class ShareableLink extends React.Component
 
     console.log(urlBase + queryStart + this.props.queryString);
     const url = this.shortenRequest(urlBase + queryStart, this.props.queryString);
+    this.copyToClipboard(url);
+    this.setState({showAlert:true});
 
-    //give a good alert simply
   }
 
   /**
@@ -32,18 +40,22 @@ export default class ShareableLink extends React.Component
     let truncatedQueries = "";
     let splitQueries = queries.split(',');
 
-    for(let i= 0; i < splitQueries.length; i++)
+    let i = 0;
+    for(i= 0; i < splitQueries.length; i++)
     {
       if(truncatedQueries.length + splitQueries[i].length > remainingSize) break;
       truncatedQueries += splitQueries[i] + ",";
     }
+
+    this.setState({shareableQueries:i});
 
     if(truncatedQueries[truncatedQueries.length - 1] === ',')
     {
       truncatedQueries = truncatedQueries.substring(0, truncatedQueries.length - 1);
     }
 
-    this.copyToClipboard(path + truncatedQueries);
+    return path + truncatedQueries;
+
   }
 
   /**
@@ -66,8 +78,30 @@ export default class ShareableLink extends React.Component
   //read input to create url
   render()
   {
+
+
+    let alert;
+    if(this.state.showAlert)
+    {
+      alert = <React.Fragment>
+        <Alert.Group.Global>
+          <Alert onClose={() => {this.setState({showAlert:false})}} type="success" closeTimeout={2000}> Link copied to clipboard successfully! </Alert>
+        </Alert.Group.Global>
+      </React.Fragment>
+    }
+    else
+    {
+      alert = "";
+    }
+
+    let calloutContent = "Please note that the shareable link will have a 2000 character limit. For larger datasets, please download and share the file.";
     return (
-     <Button style ={{marginBottom: '5', alignSelf:'flex-end'}} onClick = { () => {this.createURL()}}>Share</Button>
+        <div>
+        <Callout content = {calloutContent} placement = "left" >
+            <Button style ={{marginBottom: '5px', marginRight:'5px'}} onClick = { () => {this.createURL()}}>Get Shareable Link</Button>
+        </Callout>
+          {alert}
+        </div>
     );
   }
 }
