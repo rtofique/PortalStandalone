@@ -14,7 +14,7 @@
 	</parent>
 
 	<properties>
-		<ignite.version>2.5.0</ignite.version>
+		<ignite.version>2.8.1</ignite.version>
 		<java.version>1.8</java.version>
 		<springsecurity.version>5.0.6.RELEASE</springsecurity.version>
 		<docker.push.skip>true</docker.push.skip>
